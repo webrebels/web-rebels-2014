@@ -1,0 +1,47 @@
+{
+  "name": "web-rebels-2014",
+  "version": "0.0.1",
+  "author": {
+    "name": "Web Rebels",
+    "email": "kontor@webrebels.org"
+  },
+  "description": "The Web Rebels 2014 web site",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:webrebels/web-rebels-2014.git"
+  },
+  "keywords": [
+    "conference",
+    "javascript",
+    "web"
+  ],
+  "homepage": "http://webreb2014.jit.su/",
+  "scripts": {
+    "start": "node ./bin/server.js"
+  },
+  "contributors": [
+    {
+      "name": "Trygve Lie",
+      "email": "post@trygve-lie.com"
+    },
+    {
+      "name": "Espen Dalløkken",
+      "email": "espen@dallokken.com"
+    }
+  ],
+  "engines": {
+    "node": "0.10.x"
+  },
+  "bugs": {
+    "url": "https://github.com/webrebels/web-rebels-2014/issues"
+  },
+  "licenses": [],
+  "subdomain": "webreb2014",
+  "dependencies": {
+    "express": "3.x",
+    "winston": "0.7.x",
+    "convict": "0.4.x",
+    "ejs": "0.8.x"
+  }
+}
