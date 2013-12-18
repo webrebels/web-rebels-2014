@@ -49,6 +49,10 @@ app.get('/', function(req, res){
     res.render('frontpage', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
 });
 
+app.get('/sponsorsoptions', function(req, res){
+    res.render('sponsorsoptions', {pageTitle: 'Sponsoring options for Web Rebels ☠ Oslo ☠'});
+})
+
 // Start http server
 
 httpServer.listen(config.get('httpServerPort'));
