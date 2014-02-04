@@ -18,6 +18,8 @@
   ],
   "homepage": "http://webreb2014.jit.su/",
   "scripts": {
+    "pretest": "jshint ./bin/*.js ./test/*.js",
+    "test": "mocha ./test/*.js --reporter spec",
     "start": "node ./bin/server.js"
   },
   "contributors": [
@@ -46,6 +48,11 @@
     "www.webrebels.org",
     "webrebels.org"
   ],
+  "devDependencies": {
+    "jshint": "latest",
+    "mocha": "latest",
+    "chai": "latest"
+  },
   "dependencies": {
     "memwatch": "0.2.x",
     "winston": "0.7.x",

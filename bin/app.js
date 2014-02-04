@@ -35,7 +35,7 @@ app.get('/', function(req, res){
 
 app.get('/sponsorsoptions', function(req, res){
     res.render('sponsorsoptions', {pageTitle: 'Sponsoring options for Web Rebels ☠ Oslo ☠'});
-})
+});
 
 
 
