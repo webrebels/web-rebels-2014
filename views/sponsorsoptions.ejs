@@ -3,20 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/2014.css">
     <title><%=pageTitle%></title>
     <% include includes/analytics.ejs %>
 </head>
 <body>
-    <div style="width:100%; text-align: center; margin-top: 100px;">
-        <img src="gfx/webrebels_vintage.png" alt="Web Rebels 2014">
-        <br><br>
-        <p><a href="https://drive.google.com/file/d/0B8ilDrOywuWVNFhwdURpMHBSQms/edit?usp=sharing">Check out our sponsorship options</a></p>
-        <br><br>
-        <% include includes/footer.ejs %>
-    </div>
-    
-	
+    <% include includes/header.ejs %>
+    <p>Body - <%=pageTitle%></p>
+    <% include includes/footer.ejs %>
 </body>
 </html>

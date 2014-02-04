@@ -30,13 +30,41 @@ app.set('view engine', 'ejs');
 // Set http routes
 
 app.get('/', function(req, res){
-    res.render('frontpage', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
+    res.render('index', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
 });
-
-app.get('/sponsorsoptions', function(req, res){
-    res.render('sponsorsoptions', {pageTitle: 'Sponsoring options for Web Rebels ☠ Oslo ☠'});
+app.get('/sponsors', function(req,res){
+    res.render('sponsors', {pageTitle: 'Our sponsors without whom none of this would be possible ☠ Web Rebels ☠ Oslo 2014'});
 });
-
+app.get('/sponsoroptions', function(req,res){
+    res.render('sponsoroptions', {pageTitle: 'Sponsoring options for the Web Rebels ☠ Oslo 2014'});
+});
+app.get('/about', function(req,res){
+    res.render('about', {pageTitle: '☠ About the Web Rebels ☠'});
+});
+app.get('/tickets', function(req,res){
+    res.render('tickets', {pageTitle: 'Tickets for the Web Rebels ☠ Oslo 2014'});
+});
+app.get('/ticketConfirmation', function(req,res){
+    res.render('ticketConfirmation', {pageTitle: 'Thank you for registering with the Web Rebels ☠ Oslo 2014'});
+});
+app.get('/location', function(req,res){
+    res.render('location', {pageTitle: 'Location of the Web Rebels ☠ Oslo 2014'});
+});
+app.get('/oslo', function(req,res){
+    res.render('oslo', {pageTitle: 'Oslo survival guide for Web Rebels ☠ Oslo 2014'});
+});
+app.get('/openmic', function(req,res){
+    res.render('openmic', {pageTitle: 'Open Mic Night - Web Rebels ☠ Oslo 2014'});
+});
+app.get('/schedule', function(req,res){
+    res.render('schedule', {pageTitle: 'Schedule for Web Rebels ☠ Oslo 2014'});
+});
+app.get('/speakers', function(req,res){
+    res.render('speakers', {pageTitle: 'Speakers - Web Rebels ☠ Oslo 2014'});
+});
+app.get('/roadbook', function(req,res){
+    res.render('roadbook', {pageTitle: 'Speakers Roadbook - Web Rebels ☠ Oslo 2014'});
+});
 
 
 
