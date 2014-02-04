@@ -1,69 +1,37 @@
-/*jshint es5:true node:true*/
+/* jshint node: true, strict: true */
 
 "use strict";
 
-var config              = require('./config.js'),
-    http                = require('http'),
-    express             = require('express'),
-    winston             = require('winston'),
-    app                 = express(),
-    httpServer          = http.createServer(app);
-
-var log = new (winston.Logger)({
-    exitOnError : false,
-    transports  : [
-        new (winston.transports.Console)({
-            silent              : config.get('logConsoleSilent'),
-            level               : config.get('logConsoleLevel')
-        }),
-
-        new (winston.transports.File)({
-            filename            : config.get('logFileFileName'),
-            silent              : config.get('logFileSilent'),
-            level               : config.get('logFileLevel'),
-            handleExceptions    : true
-        })
-    ]
-});
-
-
-app.disable('x-powered-by');
-
-app.configure('all',function () {
-    app.use(express.compress());
-    app.use(express.static(config.get('docRoot')));
-});
+var memory  = require('./memory.js'),
+    server  = require('./app.js'),
+    config  = require('./config.js'),
+    log     = require('./log.js');
 
 
 
-// Set templating engine
+// Start application
 
-app.set('views', 'views');
-app.set('view engine', 'ejs');
-
-
-
-// Set http routes
-
-app.get('/', function(req, res){
-    res.render('frontpage', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
-});
-
-app.get('/sponsorsoptions', function(req, res){
-    res.render('sponsorsoptions', {pageTitle: 'Sponsoring options for Web Rebels ☠ Oslo ☠'});
-})
-
-// Start http server
-
-httpServer.listen(config.get('httpServerPort'));
-log.info('WR2014 is running at http://localhost:' + config.get('httpServerPort') + '/');
+server.listen(config.get('httpServerPort'));
+log.info('Web Rebels 2014 website running at http://localhost:' + config.get('httpServerPort') + '/');
 log.info('Serving documents from ' + config.get('docRoot'));
 
 
 
-// Prevent exceptions to bubble up to the top and eventually kill the server
+// Catch uncaught exceptions, log it and take down server in a nice way.
+// Upstart or forever should handle kicking the process back into life!
 
-process.on("uncaughtException", function (err) {
+process.on('uncaughtException', function(err) {
+    log.error('shutdown - server taken down by force due to a uncaughtException');
+    log.error(err.message);
     log.error(err.stack);
+    process.exit(1);
 });
 
+
+
+// Listen for SIGINT (Ctrl+C) and do a gracefull takedown of the server
+
+process.on('SIGINT', function() {
+    log.info('shutdown - taking down server gracefully');
+    process.exit(0);
+});

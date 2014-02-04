@@ -47,9 +47,10 @@
     "webrebels.org"
   ],
   "dependencies": {
-    "express": "3.x",
+    "memwatch": "0.2.x",
     "winston": "0.7.x",
     "convict": "0.4.x",
+    "express": "3.x",
     "ejs": "0.8.x"
   }
 }
