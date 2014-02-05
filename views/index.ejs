@@ -2,13 +2,80 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ratherloud.css">
     <title><%=pageTitle%></title>
     <% include includes/analytics.ejs %>
 </head>
 <body>
-    <% include includes/header.ejs %>
-    <p>Body - <%=pageTitle%></p>
-    <% include includes/footer.ejs %>
+<% include includes/header.ejs %>
+<div class="l-hellospeakers">
+   <div class="l-hellospeakers-inner">
+   <h2 class="visuallyhidden">Speakers</h2>
+      <ul class="speakers group">
+         <li>
+            <a class="speaker-link" href="speakers" title="">
+               <img class="speaker-img" src="img/speaker01.png" alt="">
+               <h3 class="speaker-name ratherloud-person">Amelia Earhart</h3>
+            </a>
+         </li>
+         <li>
+            <a class="speaker-link" href="speakers" title="">
+               <img class="speaker-img" src="img/speaker02.png" alt="">
+               <h3 class="speaker-name ratherloud-person">David Bowie</h3>
+            </a>
+         </li>
+         <li>
+            <a class="speaker-link" href="speakers" title="">
+               <img class="speaker-img" src="img/speaker03.png" alt="">
+               <h3 class="speaker-name ratherloud-person">Jet Li</h3>
+            </a>
+         </li>
+         <li>
+            <a class="speaker-link" href="speakers" title="">
+               <img class="speaker-img" src="img/speaker04.png" alt="">
+               <h3 class="speaker-name ratherloud-person">Angela Bassett</h3>
+            </a>
+         </li>
+         <li>
+            <a class="speaker-link" href="speakers" title="">
+               <img class="speaker-img" src="img/speaker05.png" alt="">
+               <h3 class="speaker-name ratherloud-person">Frida Kahlo</h3>
+            </a>
+         </li>
+         <li>
+            <a class="speaker-link" href="speakers" title="">
+               <img class="speaker-img" src="img/speaker06.png" alt="">
+               <h3 class="speaker-name ratherloud-person">Dave Grohl</h3>
+            </a>
+         </li>
+      </ul>
+   </div>
+</div>
+<div class="l-content">
+   <div class="l-content-inner">
+        <h1 class="ratherloud-heading">About the conference</h1>
+        <p>
+            We are a non-profit, community
+            driven conference for everyone who loves developing
+            applications and services using web technology. We are very excited to once again welcome all of
+            our friends around the world! <a href="about" class="more">Read more about Web Rebels &rarr;</a>
+        </p>       
+        <h1 class="ratherloud-heading">The Venue</h1>
+        <p>
+            Fabrikken, located in the newly 
+            constructed area, Vulkan, at Grünerløkka. The venue has brand 
+            new and modern facilities and is one of Norway's most energy 
+            efficient buildings with top notch air conditioning and high speed fiber internets. 
+            <a href="location" class="more">Find out more about the venue &rarr;</a>
+         </p>       
+         <h1 class="ratherloud-heading">Oslo survival guide for Web Rebels!</h1>
+        <p>We’ve put together this short list of things and places we appreciate in our beloved city. If you’re planning on staying for an extra few days, they’re well worth a visit. Most of the places are located close to the conference venue and hotel in the borough of Grünerløkka.
+           <a href="location" class="more">Yes, tips please! &rarr;</a>
+        </p>
+   </div>
+</div>
+<% include includes/footer.ejs %>
 </body>
 </html>

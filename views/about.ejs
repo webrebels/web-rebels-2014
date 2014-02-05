@@ -2,13 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ratherloud.css">
     <title><%=pageTitle%></title>
     <% include includes/analytics.ejs %>
 </head>
 <body>
-    <% include includes/header.ejs %>
-    <p>Body - <%=pageTitle%></p>
-    <% include includes/footer.ejs %>
+<% include includes/header.ejs %>
+<div class="l-content">
+    <div class="l-content-inner">
+        <h1 class="ratherloud-heading">About the Web Rebels Conference</h1>
+        <p>The Web Rebels conference takes place on the 22 – 23 May 2014 in Oslo, Norway. We are a non-profit, community driven conference for everyone who loves developing applications and services using web technology. We had a great time hosting the conference for the first time last year, and we are very excited to once again welcome all of our friends around the world!</p>
+        <article>
+            <h2>We Love the Community</h2>
+            <p> We love our community and we <a href="http://bit.ly/wr-love">offered 30% of the profits made last year</a> to community groups throughout the Nordic region. We want to give something back to the community that fuels our conference this year as well.</p>
+        </article>
+        <article>
+            <h2>Conference Code of Conduct</h2>
+            <p>Everyone taking part in the Web Rebels Conference must abide by the <a href="http://jsconf.com/codeofconduct.html">JSConf Code of Conduct</a>. We all want these couple of days to be unforgettable, so let's just have a great time!</p>
+        </article>
+        <article>     
+            <h2>Questions? Contact us!</h2>
+            <p> Any questions you might have, please do not hesitate to <a href="mailto:boyhowdy[ replace this bracket with a @ ]webrebels.org">shoot us an email</a><br>or contact us <a href="http://twitter.com/web_rebels/">on the twitters</a>.</p>
+        </article>
+    </div>
+</div>
+<% include includes/footer.ejs %>
 </body>
 </html>
