@@ -38,6 +38,13 @@ env: {
         env     : "NODE_HTTP_DOC_ROOT"
     },
 
+    viewRoot: {
+        doc     : "Document root for EJS templates used by Express",
+        format  : "*",
+        default : "./views",
+        env     : "NODE_HTTP_VIEW_ROOT"
+    },
+
     logConsoleLevel: {
         doc     : "Which level the console transport log should log at",
         format  : "*",

@@ -13,7 +13,8 @@ var memory  = require('./memory.js'),
 
 server.listen(config.get('httpServerPort'));
 log.info('Web Rebels 2014 website running at http://localhost:' + config.get('httpServerPort') + '/');
-log.info('Serving documents from ' + config.get('docRoot'));
+log.info('Using templates in ' + config.get('viewRoot'));
+log.info('Serving static files from ' + config.get('docRoot'));
 
 
 

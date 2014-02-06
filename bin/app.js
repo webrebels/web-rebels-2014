@@ -22,7 +22,7 @@ app.configure('all',function () {
 
 // Set templating engine
 
-app.set('views', 'views');
+app.set('views', config.get('viewRoot'));
 app.set('view engine', 'ejs');
 
 
