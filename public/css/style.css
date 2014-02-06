@@ -121,7 +121,7 @@ article {
 */
 
 .l-header {
-   background: #595955 url(img/bg01.png);
+   background: #595955 url(../img/bg01.png);
    color: #f2f2eb;
    text-align: center;
 }
@@ -131,8 +131,8 @@ article {
 }
 
 .l-hellospeakers {
-   background: url(img/bg05.png) top left repeat-x,
-   #3C3C36 url(img/bg02.png);
+   background: url(../img/bg05.png) top left repeat-x,
+   #3C3C36 url(../img/bg02.png);
 }
 
 .l-hellospeakers-inner {
@@ -148,9 +148,9 @@ article {
 }
 
 .l-footer {
-   background: url(img/bg07.png) top left repeat-x,
-   url(img/bg04.png) bottom right no-repeat,
-   #3c3c36 url(img/bg02.png);
+   background: url(../img/bg07.png) top left repeat-x,
+   url(../img/bg04.png) bottom right no-repeat,
+   #3c3c36 url(../img/bg02.png);
    color: #fff;
 }
 
@@ -174,9 +174,9 @@ article {
       margin: 2em auto;
    }
    .l-hellospeakers { 
-      background: url(img/bg05.png) top left repeat-x,
-      url(img/bg06.png) bottom left no-repeat,
-      #3c3c36 url(img/bg02.png);
+      background: url(../img/bg05.png) top left repeat-x,
+      url(../img/bg06.png) bottom left no-repeat,
+      #3c3c36 url(../img/bg02.png);
    }
    .l-hellospeakers-inner {
       max-width: 900px;
