@@ -1,0 +1,636 @@
+/*
+Title: Web Rebels
+Version: 0.1
+Author: Elisabeth Irgens
+*/
+
+/*
+
+   1. Base
+   2. Layout
+   3. Typography
+   4. Modules
+
+   Media queries sprinkled though out 
+   to keep module information together.
+
+*/
+
+
+
+/* Base 
+------------------------------------------------------*/
+
+html {
+   font-family: Georgia, serif;
+   font-size: 18px;
+   line-height: 1.5;
+}
+
+body {
+   background-color: #fff;
+   color: #3C3C36;
+   margin: 0;
+   padding: 0;
+}
+
+a {
+   text-decoration: none;
+}
+
+a:link,
+a:visited {
+   color: #69A0A8;
+}
+
+a:hover,
+a:focus,
+a:active {
+   color: #308A8E;
+}
+
+img {
+   max-width: 100%;
+}
+
+article, aside, figure, footer, header, nav, section {
+   display: block;
+}
+
+h1, h2, h3 {
+   margin: 0;
+}
+
+h1 {
+   font-size: 4em;
+}
+
+h2 {
+   font-size: 1.5em;
+}
+
+h3 {
+   font-size: 1em;
+}
+
+ul, ol, p, img {
+   margin: 0 0 1em 0;
+}
+
+::-moz-selection,
+::selection {
+background-color: #7CADB5;
+color: #3C3C36;
+}
+
+/* Hiding Content ref http://snook.ca/s/992 */
+.visuallyhidden {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0; 
+}
+
+/* self-clear floats from handcraftedcss.com */
+.group:after {
+   content: ".";
+   display: block;
+   height: 0;
+   clear: both;
+   visibility: hidden;
+}
+
+article {
+   border-top: 2px solid #efefed;
+   padding-top: 1em;
+   margin-top: 2em;
+}
+
+
+
+/* Layout 
+------------------------------------------------------
+   All class names here with a prefix l for layout.
+   The main building blocks are these areas
+   stacked on top of each other:
+      - header
+      - hellospeakers (special front page content)
+      - content (for all other content)
+      - footer
+*/
+
+.l-header {
+   background: #595955 url(img/bg01.png);
+   color: #f2f2eb;
+   text-align: center;
+}
+
+.l-header-inner {
+   padding: 1em;
+}
+
+.l-hellospeakers {
+   background: url(img/bg05.png) top left repeat-x,
+   #3C3C36 url(img/bg02.png);
+}
+
+.l-hellospeakers-inner {
+   padding: 2em 1em 0 1em;
+}
+
+.l-content {
+   margin-top: 2em;
+}
+
+.l-content-inner {
+   padding: 1em;
+}
+
+.l-footer {
+   background: url(img/bg07.png) top left repeat-x,
+   url(img/bg04.png) bottom right no-repeat,
+   #3c3c36 url(img/bg02.png);
+   color: #fff;
+}
+
+.l-footer-inner {
+   padding: 2em 1em 2em 1em;
+}
+
+/* media queries for layout stuff */
+
+@media screen and (min-width: 1000px) {
+   .l-header {
+
+   }
+   .l-header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+   }
+   .l-content {
+      max-width: 800px;
+      margin: 2em auto;
+   }
+   .l-hellospeakers { 
+      background: url(img/bg05.png) top left repeat-x,
+      url(img/bg06.png) bottom left no-repeat,
+      #3c3c36 url(img/bg02.png);
+   }
+   .l-hellospeakers-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      
+   }
+   .l-content-inner {
+      padding: 1em 0;
+   }
+   .l-footer {
+
+   }
+   .l-footer-inner {
+      max-width: 820px;
+      margin: 0 auto;
+   }
+}
+
+@media screen and (min-width: 1350px) {
+   .l-hellospeakers-inner {
+      max-width: 1350px;
+      margin: 0 auto;
+   }
+}
+
+
+
+/* Typography
+------------------------------------------------------*/
+
+.ratherloud-city,
+.ratherloud-date,
+.ratherloud-slogan,
+.ratherloud-person,
+.ratherloud-rebel,
+.ratherloud-talk,
+.ratherloud-heading {
+	font-family: RatherLoud;
+   font-size: 3em;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 0.85;
+}
+
+@media screen and (min-width: 500px) {
+   .ratherloud-city,
+   .ratherloud-date,
+   .ratherloud-slogan,
+   .ratherloud-person,
+   .ratherloud-rebel,
+   .ratherloud-talk,
+   .ratherloud-heading {
+      font-size: 4em;
+   }
+}
+
+.ratherloud-city {
+   color: #a0a09d;
+}
+
+.ratherloud-date {
+   color: #7cadB5;
+}
+
+.ratherloud-slogan {
+   color: #f2f2eb;
+}
+
+.ratherloud-person {
+
+}
+
+@media screen and (min-width: 1350px) {
+   .ratherloud-person { 
+      font-size: 3em;
+   }
+}
+
+.ratherloud-rebel {
+   margin-bottom: 0.25em;
+}
+
+.ratherloud-talk {
+   color: #9C9B9B;
+	margin-bottom: 0.25em;
+}
+
+.ratherloud-heading {
+   margin-bottom: 0.25em;
+}
+
+.notsoloud {
+   font-family: Arial, sans-serif;
+   font-size: 0.75em;
+   text-transform: uppercase;
+}
+
+.more {
+   font-weight: bold;  
+   border-bottom: 2px solid #DBE6E9;
+}
+
+article a:link,
+article a:visited {
+   border-bottom: 2px solid #DBE6E9;
+}
+
+th {
+   font-weight: normal;
+}
+
+h3 {
+   font-family: Arial, sans-serif;
+   font-weight: bold;
+}
+
+
+
+/* Modules
+------------------------------------------------------*/
+
+/* Logo and info in the header */
+
+.logo {
+
+}
+
+.logo > a:hover {
+   position: relative;
+   top: 1px;
+}
+
+.logo-img {
+   margin-bottom: 0;
+}
+
+.info {
+   list-style-type: none;
+   padding-left: 0;
+   margin: 0 0 1em 0;
+   line-height: 1;
+}
+
+.info-where {
+   
+}
+.info-when {
+   
+}
+.info-why {
+   
+}
+
+@media screen and (min-width: 1000px) {
+   .logo {
+      float: left;
+      margin: 1em 0 0 0; 
+   }
+   .info {
+      float: right;
+      width: 480px;
+   
+   }
+   .info > li {
+      display: inline-block;
+   }
+   .info-where {
+
+   }  
+   .info-where:after {
+      content: "";
+      font-size: 0.7em;
+      border-right: 4px solid rgba(255,255,255,0.1);
+      margin: 0 0.25em 0 0;
+      padding: 0 0.25em 0 0;
+   }  
+   .info-when {
+      margin: 0.2em 0 0 0;
+
+   }
+   .info-why {
+
+   }
+
+}
+
+/* Navigation in header */
+
+.menuabove {
+   list-style-type: none;
+   clear: both; 
+   margin: 0 0 0 -1em;
+   padding-left: 0;
+}
+
+.menuabove-item {
+   display: inline-block;
+}
+
+.menuabove-item a {
+   display: block;
+   padding: 0.75em 1em 0.5em 1em;
+   color: #2D2D2D;
+}
+
+.menuabove-item a:hover,
+.menuabove-item a:active {
+   background-color: #3C3C36;
+   color: #f2f2eb;
+   transition: all 0.1s ease-in 0s;
+}
+
+/* Navigation in footer */
+
+.menubelow {
+   list-style-type: none;
+   clear: both; 
+   padding-left: 0;
+}
+
+.menubelow-item {
+   display: inline-block;
+}
+
+.menubelow-item a {
+   display: block;
+   padding: 0.75em 1em 0.5em;
+   color: #fff;
+}
+
+.menubelow-item a:hover,
+.menubelow-item a:active {
+   background-color: #7cadB5;
+   color: #f2f2eb;
+   transition: all 0.1s ease-in 0s;
+}
+
+/* speakers and rebels
+   ---------------------------------------------
+   To separate the CSS, they are called speakers on the frontpage at the top, 
+   but rebels on the page with more information about each speaker and their talk. */
+
+.speakers {
+   list-style-type: none;
+   padding-left: 0;
+   text-align: center;
+   margin-bottom: 0;
+}
+
+.speakers > li {
+   margin-bottom: 1.5em;
+}
+
+.speaker-link {
+   display: block;
+}
+
+.speaker-img {
+   margin-bottom: 0;
+}
+
+.speaker-name {
+   color: #a0a09d;
+}
+
+.speaker-link:hover .speaker-name {
+   color: #f2f2eb;
+   transition: color 0.1s ease-in 0s;
+}
+
+@media screen and (min-width: 500px) {
+   .speakers {
+      text-align: left;
+   }
+   .speakers > li {
+      width: 100%;
+      display: inline-block;
+      margin-bottom: 3em;
+   }
+   .speaker-img {
+      max-width: 200px;
+      float: left;
+      margin-right: 1em;
+   }
+}
+
+@media screen and (min-width: 800px) {
+   .speakers > li {
+      width: 450px;
+      float: left;
+   }
+   .speaker-link {
+      min-height: 100px;
+   }
+   .speaker-img {
+      float: left;
+      margin-right: 1em;
+   }
+}
+
+@media screen and (min-width: 1350px) {
+   .speakers {
+      text-align: center;
+   }
+   .speakers > li {
+      width: 300px;
+      float: left;
+      margin-right: 2em;
+   }
+   .speaker-img {
+      max-width: 100%;
+      float: none;
+
+   }
+   .speakers > h3 {
+
+   }
+}
+
+.rebels {
+   list-style-type: none;
+   padding-left: 0;
+   border-top: 4px solid #525251;
+}
+
+.rebels > li {
+   padding: 1.5em 0;
+   border-bottom: 4px solid #525251;
+   clear: both;
+}
+
+.rebel-img {
+   margin-bottom: 1.5em;
+}
+
+.rebel-talk {
+   clear: both;
+}
+
+@media screen and (min-width: 800px) {
+   .rebel-bio > p {
+      margin-left: 328px;
+   }
+   
+   .rebel-img {
+      float: left;
+      margin-right: 1.5em;
+   }
+}
+
+/* The conference schedule */
+
+.schedule {
+   margin-bottom: 3em;
+   border-collapse: collapse;
+   border-top: 4px solid #525251;
+   border-bottom: 4px solid #525251;
+}
+
+.schedule p {
+   margin-bottom: 0;
+}
+
+.schedule th {
+   padding: 0.5em 1em;
+   vertical-align: text-top;
+}
+
+.schedule td {
+   vertical-align: text-top;
+}
+
+.schedule-break {
+   border-top: 2px solid #efefed;
+   border-bottom: 2px solid #efefed;
+   color: #8A8A86;  
+}
+
+.schedule-break > td {
+   padding: 0.5em 1em; 
+   font-style: italic;
+}
+
+.schedule-talk {
+
+}
+
+.schedule-link {
+   display: block;
+   padding: 0.5em 1em;
+}
+
+a.schedule-link {
+   color: #3C3C36;
+}
+
+.schedule-link:hover {
+   background-color: #efefed;
+   transition: background 0.1s ease-in 0s;
+}
+
+/* The highlighted sponsors in content */
+
+.sponsor-logo {
+   margin: 1em 0 0 0;
+   border: 1px solid #eee;
+}
+
+
+/* Full list of sponsors in the footer */
+
+.sponsors {
+   list-style-type: none;
+   padding-left: 0;
+   margin-bottom: 1.5em;
+}
+
+.sponsors > li {
+   float: left;
+   margin-bottom: 0;
+   height: 100px;
+   border: 2px solid #3C3C36;
+}
+
+.sponsors > li:hover {
+   opacity: 0.9;
+}
+
+/* Links in the footer */
+
+.links {
+   list-style-type: none;
+   clear: both; 
+   padding-left: 0;
+}
+
+.links > li {
+   display: inline-block;
+   margin-right: 1em;
+}
+
+.links a {
+   display: block;
+   padding: 0.75em 1em 0.5em 1em;
+   color: #69A0A8;
+}
+
+.links a:hover,
+.links a:active {
+   background-color: #a0a09d;
+   color: #3C3C36;
+   transition: all 0.1s ease-in 0s;
+}
+
+
+
+/* ==================== all done, you can go away now ==================== */
