@@ -46,7 +46,7 @@ which is the commandline tool to administer applications running at Nodejitsu.
 
 The Jitsu tool is installed by the following command:
 
-    sudo npm install jitsu -g
+    npm install jitsu -g
 
 Jitsu is then installed globally so it can be executed from any path. 
 
