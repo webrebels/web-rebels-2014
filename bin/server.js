@@ -2,8 +2,7 @@
 
 "use strict";
 
-var memory  = require('./memory.js'),
-    server  = require('./app.js'),
+var server  = require('./app.js'),
     config  = require('./config.js'),
     log     = require('./log.js');
 

@@ -54,7 +54,6 @@
     "chai": "latest"
   },
   "dependencies": {
-    "memwatch": "0.2.x",
     "winston": "0.7.x",
     "convict": "0.4.x",
     "express": "3.x",
