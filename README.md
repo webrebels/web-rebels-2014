@@ -7,15 +7,16 @@ This is the source code for the Web Rebels 2014 Conference web site.
 # Before we start
 
 Where you check out your code from github is entirely up to you and every time 
-this document refer to {project_path} it does refer to the path where you have 
-chosen to check out this project.
+this document refer to ```{project_path}``` it does refer to the path where you 
+have chosen to check out this project.
 
 
 
 # Development
 
 This is a [node.js](http://nodejs.org/) application. The structure of this 
-project is built as an npm package for easy development and distribution.
+project is built as an [npm](https://npmjs.org/) package for easy development 
+and distribution.
 
 
 ## Getting up and running
