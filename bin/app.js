@@ -6,7 +6,6 @@ var http                = require('http'),
     config              = require('./config.js'),
     log                 = require('./log.js'),
     express             = require('express'),
-    winston             = require('winston'),
     app                 = express();
 
 
