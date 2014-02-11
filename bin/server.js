@@ -2,9 +2,11 @@
 
 "use strict";
 
-var server  = require('./app.js'),
+var http 	= require('http'),
+	app  	= require('./app.js'),
     config  = require('./config.js'),
-    log     = require('./log.js');
+    log     = require('./log.js'),
+    server 	= http.createServer(app);
 
 
 

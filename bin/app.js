@@ -2,33 +2,25 @@
 
 "use strict";
 
-var http                = require('http'),
-    config              = require('./config.js'),
-    log                 = require('./log.js'),
-    express             = require('express'),
-    app                 = express();
+var config      = require('./config.js'),
+    middleware  = require('./middleware.js'),
+    log         = require('./log.js'),
+    express     = require('express'),
+    app         = express();
 
 
-
-// Enforce SSL if the http header "x-forwarded-proto" is pressent
-// This header is set by the nodejitsu proxy which handles the SSL
-
-function ensureSSL(req, res, next) {
-    if (req.headers['x-forwarded-proto'] === "http"){
-       res.redirect("https://" + req.headers.host + req.url);
-    }
-    return next();
-};
-
-
+// Configure app
 
 app.disable('x-powered-by');
+app.enable('trust proxy');
 
-app.configure('all',function () {
-    app.use(ensureSSL);
-    app.use(express.compress());
-    app.use(express.static(config.get('docRoot')));
-});
+
+
+// Set middleware
+
+app.use(middleware.ensureSSL);
+app.use(express.compress());
+app.use(express.static(config.get('docRoot')));
 
 
 
@@ -40,6 +32,7 @@ app.set('view engine', 'ejs');
 
 
 // Set http routes
+
 app.get('/', function(req, res){
     res.render('index_old', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
 });
@@ -82,12 +75,6 @@ app.get('/roadbook', function(req,res){
 
 
 
-// Set up http server
-
-var httpServer = http.createServer(app);
-
-
-
 // Export application
 
-module.exports = httpServer;
+module.exports = app;
