@@ -10,6 +10,11 @@ var wss     = require('ws').Server,
 
 
 module.exports.init = function(httpServer) {
+    if (!httpServer) {
+    	log.error('websocket - init - "httpServer" not provided. Can not start WebSocket server');
+    	return;
+    }
+
     socket = new wss({
         server:  httpServer,
         path : config.get('wsPath'),
