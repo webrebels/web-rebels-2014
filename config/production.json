@@ -1,4 +1,3 @@
 {
-    "logConsoleLevel"   : "error",
-    "logFileLevel"      : "error"
+    "logConsoleLevel"   : "error"
 }

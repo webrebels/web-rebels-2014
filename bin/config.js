@@ -64,27 +64,6 @@ env: {
         format  : "*",
         default : false,
         env     : "NODE_LOG_CONSOLE_SILENT"
-    },
-
-    logFileLevel: {
-        doc     : "Which level the file transport log should log at",
-        format  : "*",
-        default : "info",
-        env     : "NODE_LOG_FILE_LEVEL"
-    },
-
-    logFileSilent: {
-        doc     : "If the file transport log should be silent or not",
-        format  : "*",
-        default : false,
-        env     : "NODE_LOG_FILE_SILENT"
-    },
-
-    logFileFileName: {
-        doc     : "Which file the file transport log should log to",
-        format  : "*",
-        default : "./logs/" + pckage.name + ".log",
-        env     : "NODE_LOG_FILE_FILE_NAME"
     }
 
 });
