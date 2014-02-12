@@ -2,12 +2,12 @@
 
 "use strict";
 
-var http 	= require('http'),
-	app  	= require('./app.js'),
+var http    = require('http'),
+    app     = require('./app.js'),
     config  = require('./config.js'),
     log     = require('./log.js'),
-    ws 		= require('./websocket.js'),
-    server 	= http.createServer(app);
+    ws      = require('./websocket.js'),
+    server  = http.createServer(app);
 
 
 
