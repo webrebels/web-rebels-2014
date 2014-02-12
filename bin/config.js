@@ -45,6 +45,13 @@ env: {
         env     : "NODE_HTTP_VIEW_ROOT"
     },
 
+    wsPath: {
+        doc     : "Path of the public websocket",
+        format  : "*",
+        default : "/api/stream",
+        env     : "NODE_WS_PATH"
+    },
+
     logConsoleLevel: {
         doc     : "Which level the console transport log should log at",
         format  : "*",

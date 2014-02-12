@@ -6,11 +6,18 @@ var http 	= require('http'),
 	app  	= require('./app.js'),
     config  = require('./config.js'),
     log     = require('./log.js'),
+    ws 		= require('./websocket.js'),
     server 	= http.createServer(app);
 
 
 
-// Start application
+// Load websocket
+
+ws.init(server);
+
+
+
+// Start http server
 
 server.listen(config.get('httpServerPort'));
 log.info('Web Rebels 2014 website running at http://localhost:' + config.get('httpServerPort') + '/');
