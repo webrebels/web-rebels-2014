@@ -11,6 +11,13 @@ var http    = require('http'),
 
 
 
+// Max out the number of socket connections.
+// Default concurrent sockets in node.js is 5. We need more!
+
+http.globalAgent.maxSockets = Infinity;
+
+
+
 // Load websocket
 
 ws.init(server);
