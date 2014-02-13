@@ -7,7 +7,7 @@
 
   function showMap() {
       var map = L.map('map').setView([locations.venue.lat, locations.venue.lng], 15);
-      L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}', {
+      L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
           minZoom: 5
       }).addTo(map);
