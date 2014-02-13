@@ -434,6 +434,7 @@ h3 {
 
 .speaker-link {
    display: block;
+   overflow: hidden;
 }
 
 .speaker-img {
@@ -471,7 +472,7 @@ h3 {
       float: left;
    }
    .speaker-link {
-      min-height: 100px;
+      height: 145px;
    }
    .speaker-img {
       float: left;
@@ -480,22 +481,24 @@ h3 {
 }
 
 @media screen and (min-width: 1350px) {
-   .speakers {
-      text-align: center;
-   }
-   .speakers > li {
-      width: 300px;
-      float: left;
-      margin-right: 2em;
-   }
-   .speaker-img {
-      max-width: 100%;
-      float: none;
+    .speakers {
+        text-align: center;
+    }
+    .speakers > li {
+        width: 300px;
+        float: left;
+        margin-right: 2em;
+    }
+    .speaker-img {
+        max-width: 100%;
+        float: none;
+    }
+    .speakers > h3 {
 
-   }
-   .speakers > h3 {
-
-   }
+    }
+    .speaker-link {
+        height: 350px;
+    }
 }
 
 .rebels {
