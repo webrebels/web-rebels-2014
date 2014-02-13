@@ -31,7 +31,7 @@
   function loadMap() {
       var script = document.createElement("script");
       script.type = "text/javascript";
-      script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=showMap";
+      script.src = "//maps.googleapis.com/maps/api/js?sensor=false&callback=showMap";
       document.body.appendChild(script);
 
       
