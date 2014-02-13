@@ -521,6 +521,10 @@ h3 {
    clear: both;
 }
 
+.rebel-bio {
+	overflow: hidden;
+}
+
 @media screen and (min-width: 800px) {
    .rebel-bio > p {
       margin-left: 328px;
