@@ -217,7 +217,7 @@ article {
 .ratherloud-talk,
 .ratherloud-heading {
 	font-family: RatherLoud;
-   font-size: 3em;
+   	font-size: 3em;
 	font-style: normal;
 	font-weight: normal;
 	line-height: 0.85;
@@ -231,7 +231,7 @@ article {
    .ratherloud-rebel,
    .ratherloud-talk,
    .ratherloud-heading {
-      font-size: 4em;
+      font-size: 3em;
    }
 }
 
@@ -248,7 +248,7 @@ article {
 }
 
 .ratherloud-person {
-
+	font-size: 3em;
 }
 
 @media screen and (min-width: 1350px) {
