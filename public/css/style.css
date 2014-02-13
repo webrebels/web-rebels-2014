@@ -141,6 +141,19 @@ article {
    padding: 2em 1em 0 1em;
 }
 
+.l-hellopages {
+   background: url(../img/bg05.png) repeat-x transparent;
+}
+
+.l-hellopages-inner {
+   padding: 2em 1em 0 1em;
+}
+
+/** overriding the hellopages top for the front page **/
+.index .l-hellopages, .index .l-hellopages-inner {
+	display: none;
+}
+
 .l-content {
    margin-top: 2em;
 }
