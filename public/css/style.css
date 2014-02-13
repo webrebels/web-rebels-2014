@@ -240,11 +240,10 @@ article {
    .ratherloud-city,
    .ratherloud-date,
    .ratherloud-slogan,
-   .ratherloud-person,
    .ratherloud-rebel,
    .ratherloud-talk,
    .ratherloud-heading {
-      font-size: 3em;
+      font-size: 4em;
    }
 }
 
@@ -258,16 +257,6 @@ article {
 
 .ratherloud-slogan {
    color: #f2f2eb;
-}
-
-.ratherloud-person {
-    font-size: 3em;
-}
-
-@media screen and (min-width: 1350px) {
-   .ratherloud-person { 
-      font-size: 3em;
-   }
 }
 
 .ratherloud-rebel {
@@ -661,6 +650,10 @@ a.schedule-link {
    transition: all 0.1s ease-in 0s;
 }
 
-
+/* Frontpage goodies */
+.grabyourtickets a {
+   background: #a0a09d url(../img/grabyourtickets.png) no-repeat;
+   padding: 0.75em 3em 0.5em 3em;
+}
 
 /* ==================== all done, you can go away now ==================== */
