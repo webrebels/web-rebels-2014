@@ -34,9 +34,9 @@ app.set('view engine', 'ejs');
 // Set http routes
 
 app.get('/', function(req, res){
-    res.render('index_old', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
+    res.render('index', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
 });
-app.get('/index2', function(req, res){
+app.get('/index', function(req, res){
     res.render('index', { pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
 });
 app.get('/sponsors', function(req,res){
