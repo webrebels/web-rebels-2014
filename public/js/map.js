@@ -1,41 +1,27 @@
-
 (function(){
 
   var map;
-  var locations = {
-      venue : { title : 'Conference Venue', lat : 59.922807, lng : 10.751388 }
-  };
+  var venueLatLng = [59.922807, 10.751388 ];
 
   function showMap() {
-      var options = {
-          zoom: 15,
-          center: new google.maps.LatLng( locations.venue.lat, locations.venue.lng ),
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          scrollwheel: false
-      };
-      map = new google.maps.Map(document.getElementById('map'), options );
+      L.Icon.Default.imagePath = "/img";
+      var map = L.map("map").setView(venueLatLng, 15);
+      L.tileLayer("//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+          minZoom: 5
+      }).addTo(map);
 
-      var marker = new google.maps.Marker({
-          position: map.getCenter(),
-          map: map,
-          title: locations.venue.title
-      });
-
-      google.maps.event.addDomListener( window, 'resize', function() {
-          map.setCenter( map.getCenter() );
-      });
+      L.marker(venueLatLng).addTo(map)
+          .bindPopup("Conference Venue:<br/>Scandic Vulkan<br/>Maridalsveien 13 A")
+          .openPopup();
   }
-
-  // showMap needs to be global for async map loading
-  window["showMap"] = showMap;
 
   function loadMap() {
       var script = document.createElement("script");
       script.type = "text/javascript";
-      script.src = "//maps.googleapis.com/maps/api/js?sensor=false&callback=showMap";
+      script.src = "/js/leaflet.js";
+      script.onload = showMap;
       document.body.appendChild(script);
-
-      
   }
   loadMap();
 }());
