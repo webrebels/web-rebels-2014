@@ -72,7 +72,7 @@ env: {
     jsFiles: {
         doc     : "Non minified JavaScript files - Use relative path to 'docRoot'",
         format  : Array,
-        default : ['/js/**/*'],,
+        default : ['/js/**/*'],
         env     : "NODE_JS_FILES"
     },
 
