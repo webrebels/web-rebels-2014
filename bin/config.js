@@ -14,7 +14,8 @@ env: {
     doc: "Applicaton environments",
         format  : ["development", "production"],
         default : "development",
-        env     : "NODE_ENV"
+        env     : "NODE_ENV",
+        arg     : "env"
     },
 
     version: {
@@ -34,7 +35,7 @@ env: {
     docRoot: {
         doc     : "Document root for static files to be served by the http server",
         format  : "*",
-        default : "./public",
+        default : "./public/src",
         env     : "NODE_HTTP_DOC_ROOT"
     },
 
@@ -56,14 +57,65 @@ env: {
         doc     : "Which level the console transport log should log at",
         format  : "*",
         default : "info",
-        env     : "NODE_LOG_CONSOLE_LEVEL"
+        env     : "NODE_LOG_CONSOLE_LEVEL",
+        arg     : "log-console-level"
     },
 
     logConsoleSilent: {
         doc     : "If the console transport log should be silent or not",
         format  : "*",
         default : false,
-        env     : "NODE_LOG_CONSOLE_SILENT"
+        env     : "NODE_LOG_CONSOLE_SILENT",
+        arg     : "log-console-silent"
+    },
+
+    jsFiles: {
+        doc     : "Non minified JavaScript files - Use relative path to 'docRoot'",
+        format  : Array,
+        default : [
+            '/js/lib/leaflet-0.7.1/leaflet-src.js',
+            '/js/lib/derp-modules.js',
+            '/js/map.js'
+        ],
+        env     : "NODE_JS_FILES"
+    },
+
+    cssFiles: {
+        doc     : "Non minified CSS files - Use relative path to 'docRoot'",
+        format  : Array,
+        default : [
+            '/css/style.css',
+            '/js/lib/leaflet-0.7.1/leaflet.css'
+        ],
+        env     : "NODE_CSS_FILES"
+    },
+
+    gfxFiles: {
+        doc     : "Source graphic files - Use relative path to 'docRoot'",
+        format  : Array,
+        default : ['/img/**/*'],
+        env     : "NODE_GFX_FILES"
+    },
+
+    fontFiles: {
+        doc     : "Source font files - Use relative path to 'docRoot'",
+        format  : Array,
+        default : ['/webfonts/**/*'],
+        env     : "NODE_FONT_FILES"
+    },
+
+    jsMinFile: {
+        doc     : "Minified JavaScript file",
+        format  : Array,
+        default : ['/js/scripts.min.js'],
+        env     : "NODE_JS_MIN_FILE"
+    },
+
+    cssMinFile: {
+        doc     : "Minified CSS file",
+        format  : Array,
+        default : ['/css/styles.min.css'],
+        env     : "NODE_CSS_MIN_FILE"
     }
 
 });

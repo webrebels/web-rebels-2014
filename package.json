@@ -16,11 +16,13 @@
     "javascript",
     "web"
   ],
-  "homepage": "http://webreb2014.jit.su/",
+  "homepage": "https://www.webrebels.org/",
   "scripts": {
-    "pretest": "jshint ./bin/*.js ./test/*.js",
+    "pretest": "jshint ./bin/*.js ./gulpfile.js ./public/src/js/*.js",
     "test": "mocha ./test/*.js --reporter spec",
-    "start": "node ./bin/server.js"
+    "start": "node ./bin/server.js",
+    "minify": "gulp",
+    "prepublish": "gulp"
   },
   "contributors": [
     {
@@ -51,7 +53,11 @@
   "devDependencies": {
     "jshint": "latest",
     "mocha": "latest",
-    "chai": "latest"
+    "chai": "latest",
+    "gulp": "latest",
+    "gulp-concat": "latest",
+    "gulp-uglify": "latest",
+    "gulp-minify-css" : "latest"
   },
   "dependencies": {
     "winston": "0.7.x",
