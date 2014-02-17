@@ -1,6 +1,6 @@
 {
   "name": "web-rebels-2014",
-  "version": "0.0.1-30",
+  "version": "0.0.1-32",
   "author": {
     "name": "Web Rebels",
     "email": "kontor@webrebels.org"
@@ -21,8 +21,7 @@
     "pretest": "jshint ./bin/*.js ./gulpfile.js ./public/src/js/*.js",
     "test": "mocha ./test/*.js --reporter spec",
     "start": "node ./bin/server.js",
-    "minify": "gulp",
-    "prepublish": "gulp"
+    "minify": "gulp"
   },
   "contributors": [
     {
@@ -57,7 +56,7 @@
     "gulp": "latest",
     "gulp-concat": "latest",
     "gulp-uglify": "latest",
-    "gulp-minify-css" : "latest"
+    "gulp-minify-css": "latest"
   },
   "dependencies": {
     "winston": "0.7.x",

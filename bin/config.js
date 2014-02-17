@@ -72,21 +72,14 @@ env: {
     jsFiles: {
         doc     : "Non minified JavaScript files - Use relative path to 'docRoot'",
         format  : Array,
-        default : [
-            '/js/lib/leaflet-0.7.1/leaflet-src.js',
-            '/js/lib/derp-modules.js',
-            '/js/map.js'
-        ],
+        default : ['/js/**/*'],,
         env     : "NODE_JS_FILES"
     },
 
     cssFiles: {
         doc     : "Non minified CSS files - Use relative path to 'docRoot'",
         format  : Array,
-        default : [
-            '/css/style.css',
-            '/js/lib/leaflet-0.7.1/leaflet.css'
-        ],
+        default : ['/css/**/*'],
         env     : "NODE_CSS_FILES"
     },
 

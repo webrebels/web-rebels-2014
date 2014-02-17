@@ -61,8 +61,34 @@ When logged in your able to operate the applications running on Nodejitsu.
 To deploy this application to Nodejitsu, run the following commands:
 
     cd {project_path}
+    npm run-script minify
     jitsu deploy
 
 Then accept the updating of the applications version number and then the 
 application will be deployed to production. If everything is OK, jitsu should 
 report an OK when the new version is up and running in production.
+
+
+
+# Develop
+
+This is a pretty simple app where all html and content is placed in the ```view```
+directory. Though, the application is as mentioned a node.js app which has a
+configuration and knowledge about if its running in development or production
+mode. This knowledge and configuration is also the base for a build system
+which minify CSS and JS files so its important that one follow a couple of
+rules when developing.
+
+
+## I want to add some CSS or JS to the application
+
+If you want to add a new CSS og JS file to the application, this is done
+by placing the CSS file in ```./public/src/css/``` or the JS file in
+```./public/src/js/```.
+
+Then add the CSS file to the ```cssFiles``` Array or add the JS file to the 
+```jsFiles``` Array in ```./config/development.json```. Then restart the server
+and the file will be appended to the head of the document.
+
+It is important these files is added here because this information is used
+when one build the application before its pushed to production.
