@@ -24,11 +24,11 @@
 
 @font-face {
     font-family: 'RatherLoud';
-    src: url('RatherLoud-webfont.eot');
-    src: url('RatherLoud-webfont.eot?#iefix') format('embedded-opentype'),
-         url('RatherLoud-webfont.woff') format('woff'),
-         url('RatherLoud-webfont.ttf') format('truetype'),
-         url('RatherLoud-webfont.svg#rather_loudbold') format('svg');
+    src: url('/webfonts/ratherloud/RatherLoud-webfont.eot');
+    src: url('/webfonts/ratherloud/RatherLoud-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/webfonts/ratherloud/RatherLoud-webfont.woff') format('woff'),
+         url('/webfonts/ratherloud/RatherLoud-webfont.ttf') format('truetype'),
+         url('/webfonts/ratherloud/RatherLoud-webfont.svg#rather_loudbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
