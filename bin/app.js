@@ -39,7 +39,7 @@ app.set('view engine', 'ejs');
 // Set http routes
 
 app.get('/', function(req, res){
-    res.render('index', {externals: externals, pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
+    res.render('index', {externals: externals, pageTitle: 'Web Rebels ☠ Oslo ☠ 22-23 May 2014' });
 });
 app.get('/index', function(req, res){
     res.render('index', {externals: externals, pageTitle: 'Web Rebels ☠ Oslo ☠ 2014' });
