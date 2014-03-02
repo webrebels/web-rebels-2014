@@ -59,10 +59,11 @@
     "gulp-minify-css": "latest"
   },
   "dependencies": {
+    "websocket": "1.0.x",
     "winston": "0.7.x",
     "convict": "0.4.x",
     "express": "3.x",
-    "ejs": "0.8.x",
-    "ws": "0.4.x"
+    "uuid" : "1.4.x",
+    "ejs": "0.8.x"
   }
 }
