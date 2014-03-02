@@ -67,10 +67,10 @@ module.exports.init = function(httpServer) {
 
         connection.on('message', function(message) {
             var obj = {};
-
+            
             if (message.type === 'utf8') {
                 try {
-                    obj = JSON.parse(message);
+                    obj = JSON.parse(message.utf8Data);
                 } catch(err) {
                     log.error('websocket - inbound JSON object can not be parsed!');
                     log.error(err);
