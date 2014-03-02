@@ -66,8 +66,17 @@ module.exports.init = function(httpServer) {
 
 
         connection.on('message', function(message) {
+            var obj = {};
+
             if (message.type === 'utf8') {
-                module.exports.emit('message', connection.id, message);
+                try {
+                    obj = JSON.parse(message);
+                } catch(err) {
+                    log.error('websocket - inbound JSON object can not be parsed!');
+                    log.error(err);
+                    return;
+                }
+                module.exports.emit('message', connection.id, obj);
             }
         });
 
