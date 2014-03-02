@@ -30,7 +30,12 @@ module.exports = new EventEmitter();
 
 module.exports.init = function(httpServer) {
     if (!httpServer) {
-        log.error('websocket - init - "httpServer" not provided. Can not start WebSocket server');
+        log.error('websocket - init - "httpServer" not provided. can not start WebSocket server');
+        return;
+    }
+
+    if (socket) {
+        log.error('websocket - init - socket already set up');
         return;
     }
 
