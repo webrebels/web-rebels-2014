@@ -1,7 +1,7 @@
 /* jshint browser: true, strict: true */
 /* global define */
 
-define('webrebels.map', function(require, exports) {
+define('map', function(require, exports) {
 
     "use strict";
 

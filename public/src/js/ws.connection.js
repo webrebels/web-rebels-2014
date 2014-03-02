@@ -1,10 +1,10 @@
 /* jshint browser: true, strict: true */
 
-define('modules/ws.connection', function(require, exports) {
+define('ws.connection', function(require, exports) {
 
     "use strict";
 
-    var utils = require('modules/ws.utils'),
+    var utils = require('ws.utils'),
 
         socket,
         socketForceClosed   = false,

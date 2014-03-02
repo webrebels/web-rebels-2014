@@ -1,6 +1,6 @@
 /* jshint browser: true, strict: true */
 
-define('modules/ws.utils', function(require, exports) {
+define('ws.utils', function(require, exports) {
 
     "use strict";
 

@@ -1,10 +1,10 @@
 /* jshint browser: true, strict: true */
 
-define('modules/init', function(require, exports) {
+define('init', function(require, exports) {
 
     "use strict";
 
-    var ws = require('modules/ws.connection');
+    var ws = require('ws.connection');
 
     ws.on('error', function(obj){
         console.log('error', obj);
