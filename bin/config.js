@@ -102,6 +102,34 @@ env: {
         format  : Array,
         default : ['/css/styles.min.css'],
         env     : "NODE_CSS_MIN_FILE"
+    },
+
+    twitterConsumerKey: {
+        doc     : "twitter API - consumer key",
+        format  : "*",
+        default : undefined,
+        env     : "TWITTER_CONSUMER_KEY"
+    },
+
+    twitterConsumerSecret: {
+        doc     : "twitter API - consumer secret",
+        format  : "*",
+        default : undefined,
+        env     : "TWITTER_CONSUMER_SECRET"
+    },
+
+    twitterAccessToken: {
+        doc     : "twitter API - access token",
+        format  : "*",
+        default : undefined,
+        env     : "TWITTER_ACCESS_TOKEN"
+    },
+
+    twitterAccessTokenSecret: {
+        doc     : "twitter API - access token secret",
+        format  : "*",
+        default : undefined,
+        env     : "TWITTER_ACCESS_TOKEN_SECRET"
     }
 
 });
