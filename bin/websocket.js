@@ -86,24 +86,24 @@ module.exports.init = function(httpServer) {
 
 
 
-// Send a message to single connection
+// Send a object to single connection
 
-module.exports.send = function(id, message) {
+module.exports.send = function(id, obj) {
     var connection = connections[id];
     if (connection.connected) {
-        connection.sendUTF(message);
+        connection.sendUTF(JSON.stringify(obj));
     }
 };
 
 
 
-// Brodcast a message to all connections
+// Brodcast a object to all connections
 
-module.exports.broadcast = function(message) {
+module.exports.broadcast = function(obj) {
     Object.keys(connections).forEach(function(key) {
         var connection = connections[key];
         if (connection.connected) {
-            connection.sendUTF(message);
+            connection.sendUTF(JSON.stringify(obj));
         }
     });
 };
