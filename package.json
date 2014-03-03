@@ -1,6 +1,6 @@
 {
   "name": "web-rebels-2014",
-  "version": "0.0.1-45",
+  "version": "0.0.1-46",
   "author": {
     "name": "Web Rebels",
     "email": "kontor@webrebels.org"
@@ -63,7 +63,8 @@
     "winston": "0.7.x",
     "convict": "0.4.x",
     "express": "3.x",
-    "uuid" : "1.4.x",
+    "uuid": "1.4.x",
+    "twit": "1.1.x",
     "ejs": "0.8.x"
   }
 }
