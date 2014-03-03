@@ -7,7 +7,8 @@ var EventEmitter    = require('events').EventEmitter,
     utils           = require('./utils.js');
 
 
-var tweets = [];
+var messages = [],
+    Twitter;
 
 
 
@@ -17,50 +18,74 @@ module.exports = new EventEmitter();
 
 
 
-// Connect to Twitter
+// Format for "keys"
+//
+// {
+//    consumer_key: "na",
+//    consumer_secret: "na",
+//    access_token: "na",
+//    access_token_secret: "na"
+// }
 
-var T = new twit({
-    consumer_key: "na",
-    consumer_secret: "na",
-    access_token: "na",
-    access_token_secret: "na"
-});
+module.exports.init = function(keys, query) {
+    
+    var stream;
 
-
-
-// Get a chunc of tweets on the topic to follow
-
-T.get('search/tweets', { q: 'javascript', count: 40 }, function(err, reply) {
-    if(err) {
-        console.log('error');
+    if (!keys) {
+        module.exports.emit('error', 'twitter - init - "keys" not provided');
         return;
     }
 
-    tweets = reply.statuses.filter(utils.filter).map(function(status){
-        return utils.wash(status);
+    if (!query) {
+        module.exports.emit('error', 'twitter - init - "query" not provided');
+        return;
+    }
+
+    if (Twitter) {
+        module.exports.emit('error', 'twitter - init - twitter already set up');
+        return;
+    }
+
+
+    // Connect to Twitter
+
+    Twitter = new twit(keys);
+
+
+    // Get a chunc of tweets on the topic to follow
+
+    Twitter.get('search/tweets', { q: 'javascript', count: 40 }, function(err, reply) {
+        if(err) {
+            module.exports.emit('error', 'twitter - init - could not query twitter');
+            return;
+        }
+
+        messages = reply.statuses.filter(utils.filter).map(function(status){
+            return utils.wash(status);
+        });
+
     });
 
-});
+
+    // Listen on the stream API on the topic to follow
+
+    stream = Twitter.stream('statuses/filter', {track: 'javascript'});
 
 
+    stream.on('tweet', function(status) {
+        var obj = {};
 
-// Listen on the stream API on the topic to follow
+        if (utils.filter(status)) {
+            obj = utils.wash(status);
+            messages.push(obj);
+            module.exports.emit('message', obj);
+        }
+    });
 
-var stream = T.stream('statuses/filter', {track: 'javascript'});
-
-stream.on('tweet', function(status) {
-    var obj = {};
-
-    if (utils.filter(status)) {
-        obj = utils.wash(status);
-        tweets.push(obj);
-        module.exports.emit('message', obj);
-        console.log(obj);
-    }
-});
+};
 
 
 
 module.exports.latest = function(){
-    return tweets;
+    return messages;
 };
