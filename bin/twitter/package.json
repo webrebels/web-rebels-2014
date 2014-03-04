@@ -1,4 +1,4 @@
 {
     "name" : "twitter",
-    "main" : "./twitter"
+    "main" : "./lib/twitter"
 }

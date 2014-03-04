@@ -35,16 +35,20 @@ twitter.on('message', function(msg){
     });
 });
 
+twitter.on('info', function(msg){
+    log.info(msg);
+});
+
 twitter.on('error', function(msg){
     log.error(msg);
 });
 
 twitter.init({
-    consumer_key: "na",
-    consumer_secret: "na",
-    access_token: "na",
-    access_token_secret: "na"
-}, 'na');
+    consumer_key: config.get('twitterConsumerKey'),
+    consumer_secret: config.get('twitterConsumerSecret'),
+    access_token: config.get('twitterAccessToken'),
+    access_token_secret: config.get('twitterAccessTokenSecret')
+}, config.get('twitterQuery'));
 
 
 
