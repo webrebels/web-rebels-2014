@@ -48,6 +48,14 @@ gulp.task('gfx', function() {
 
 
 
+// Copy favicon
+
+gulp.task('icon', function() {
+    return gulp.src('public/src/favicon.ico')
+        .pipe(gulp.dest('public/build'));
+});
+
+
 // Copy fonts
 
 gulp.task('fonts', function() {
@@ -59,4 +67,4 @@ gulp.task('fonts', function() {
 
 // The default task
 
-gulp.task('default', ['js', 'css', 'gfx', 'fonts']);
+gulp.task('default', ['js', 'css', 'gfx', 'fonts', 'icon']);
