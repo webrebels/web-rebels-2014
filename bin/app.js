@@ -5,12 +5,51 @@
 var config      = require('./config.js'),
     middleware  = require('./middleware.js'),
     log         = require('./log.js'),
+    ws          = require('./websocket.js'),
     express     = require('express'),
+    twitter     = require('./twitter'),
     app         = express(),
     externals   = {
         js      : (config.get('env') === 'development') ? config.get('jsFiles') : config.get('jsMinFile'),
         css     : (config.get('env') === 'development') ? config.get('cssFiles') : config.get('cssMinFile')
     };
+
+
+
+// Load Twitter
+
+twitter.on('message', function(msg){
+    ws.broadcast({
+        type : 'twitter:message',
+        data : msg
+    });
+});
+
+twitter.on('info', function(msg){
+    log.info(msg);
+});
+
+twitter.on('error', function(msg){
+    log.error(msg);
+});
+
+twitter.listen({
+    consumer_key: config.get('twitterConsumerKey'),
+    consumer_secret: config.get('twitterConsumerSecret'),
+    access_token: config.get('twitterAccessToken'),
+    access_token_secret: config.get('twitterAccessTokenSecret')
+}, config.get('twitterQuery'));
+
+
+
+// Set up websocket listeners
+
+ws.on('connection', function(id){
+    ws.send(id, {
+        type: 'twitter:init',
+        data: twitter.messages()
+    });
+});
 
 
 

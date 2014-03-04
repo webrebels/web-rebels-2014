@@ -4,14 +4,12 @@
 
 var EventEmitter    = require('events').EventEmitter,
     twit            = require('twit'),
+    users          = require('./users.js'),
     stream          = require('./stream.js'),
     query           = require('./query.js'),
-    utils           = require('./utils.js');
+    utils           = require('./utils.js'),
 
-
-
-var messages = [],
-    Twitter;
+    messages        = [];
 
 
 
@@ -30,58 +28,101 @@ module.exports = new EventEmitter();
 //    access_token_secret: "na"
 // }
 
-module.exports.init = function(keys, keywords) {
+module.exports.listen = function(keys, keywords, messageLogLength) {
 
-    if (!keys) {
-        module.exports.emit('error', 'twitter - init - "keys" not provided');
+    if (!keys.consumer_key) {
+        module.exports.emit('error', 'twitter - "consumer_key" not provided - service is disabled');
+        return;
+    }
+
+    if (!keys.consumer_secret) {
+        module.exports.emit('error', 'twitter - "consumer_secret" not provided - service is disabled');
+        return;
+    }
+
+    if (!keys.access_token) {
+        module.exports.emit('error', 'twitter - "access_token" not provided - service is disabled');
+        return;
+    }
+
+    if (!keys.access_token_secret) {
+        module.exports.emit('error', 'twitter - "access_token_secret" not provided - service is disabled');
         return;
     }
 
     if (!keywords) {
-        module.exports.emit('error', 'twitter - init - "keywords" not provided');
+        module.exports.emit('error', 'twitter - "keywords" not provided - service is disabled');
         return;
     }
 
     if (Twitter) {
-        module.exports.emit('error', 'twitter - init - twitter already set up');
+        module.exports.emit('error', 'twitter - twitter already set up');
         return;
     }
 
 
+    messageLogLength = messageLogLength || 10;
+
+
     // Connect to Twitter
 
-    Twitter = new twit(keys);
+    var Twitter = new twit(keys);
 
+
+
+    stream.on('message', function(message){
+        console.log(message);
+    });
+
+
+
+
+
+
+    users.on('success', function(){
+        stream.follow(Twitter, users.allUserIds());
+    });
+    users.lookup(Twitter, 'web_rebels', ['trygve_lie', 'bodil', 'jaffathecake']);
+
+
+
+/*
 
     // Build a backlog of messages
 
-    query.get(Twitter, keywords, function(message){
+    query.get(Twitter, keywords, messageLogLength, function queryError(message){
         module.exports.emit('error', message);
 
-    }, function(msgArr){
+    }, function querySuccess(msgArr){
         messages = msgArr;
 
     });
-
+*/
 
     // Listen for new messages
-
-    stream.listen(Twitter, keywords, function(message){
+/*
+    stream.listen(Twitter, keywords, function streamError(message){
         module.exports.emit('error', message);
 
-    }, function(message){
+    }, function streamInfo(message){
         module.exports.emit('info', message);
 
-    }, function(message){
-        messages.push(message);
+    }, function streamMessage(message){
         module.exports.emit('message', message);
+        
+        messages.unshift(message);
+        if (messages.length > messageLogLength) {
+            messages.pop();
+        }
 
     });
+*/
+
 
 };
 
 
 
-module.exports.latest = function(){
+module.exports.messages = function(){
     return messages;
 };

@@ -107,7 +107,7 @@ env: {
     twitterQuery: {
         doc     : "Twitter - Word(s) to listen for",
         format  : Array,
-        default : ['javascript'],
+        default : ['@web_rebels'],
         env     : "TWITTER_QUERY"
     },
 
@@ -115,28 +115,32 @@ env: {
         doc     : "Twitter API - consumer key",
         format  : "*",
         default : undefined,
-        env     : "TWITTER_CONSUMER_KEY"
+        env     : "TWITTER_CONSUMER_KEY",
+        arg     : "twitter-consumer-key"
     },
 
     twitterConsumerSecret: {
         doc     : "Twitter API - consumer secret",
         format  : "*",
         default : undefined,
-        env     : "TWITTER_CONSUMER_SECRET"
+        env     : "TWITTER_CONSUMER_SECRET",
+        arg     : "twitter-consumer-secret"
     },
 
     twitterAccessToken: {
         doc     : "Twitter API - access token",
         format  : "*",
         default : undefined,
-        env     : "TWITTER_ACCESS_TOKEN"
+        env     : "TWITTER_ACCESS_TOKEN",
+        arg     : "twitter-access-token"
     },
 
     twitterAccessTokenSecret: {
         doc     : "Twitter API - access token secret",
         format  : "*",
         default : undefined,
-        env     : "TWITTER_ACCESS_TOKEN_SECRET"
+        env     : "TWITTER_ACCESS_TOKEN_SECRET",
+        arg     : "twitter-access-token-secret"
     }
 
 });

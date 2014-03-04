@@ -6,19 +6,27 @@ var utils = require('./utils.js');
 
 
 
-module.exports.get = function(api, query, onError, onSuccess) {
+module.exports.get = function(api, query, messageLogLength, onError, onSuccess) {
 
-	var messages = [];
+    var messages = [];
+/*
 
-    api.get('search/tweets', { q: query, count: 40 }, function(err, reply) {
+    api.get('users/lookup', {screen_name: ['trygve_lie', 'web_rebels']}, function(err, reply){
+        console.log(reply);
+    });
+*/
+
+    api.get('statuses/user_timeline', {screen_name: 'trygve_lie', count: messageLogLength}, function(err, reply) {
         if(err) {
             onError.call(null, 'twitter - could not query twitter');
             return;
         }
 
-        messages = reply.statuses.filter(utils.filter).map(function(status){
-            return utils.wash(status);
-        });
+        if (reply) {
+            messages = reply.filter(utils.filter).map(function(status){
+                return utils.wash(status);
+            });
+        }
 
         onSuccess.call(null, messages);
     });

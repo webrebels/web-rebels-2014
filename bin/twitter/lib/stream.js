@@ -2,34 +2,41 @@
 
 "use strict";
 
-var utils = require('./utils.js');
+var EventEmitter    = require('events').EventEmitter,
+    utils           = require('./utils.js');
 
 
 
-module.exports.listen = function(api, keywords, onError, onInfo, onMessage) {
-    
-    var stream = api.stream('statuses/filter', {track: keywords});
+// Inherit from Event Emitter
 
-    stream.on('connect', function(req) {
-        onInfo.call(null, 'twitter - connected to the twitter stream api');
+module.exports = new EventEmitter();
+
+
+
+module.exports.follow = function(api, userIds) {
+
+    var follow = api.stream('statuses/filter', {follow: userIds});
+
+    follow.on('connect', function(req) {
+        module.exports.emit('info', 'twitter - follower connected to the twitter stream api');
     });
 
-    stream.on('warning', function(req) {
-        onInfo.call(null, 'twitter - warning from the twitter stream api');
+    follow.on('warning', function(req) {
+        module.exports.emit('info', 'twitter - follower got warning from the twitter stream api');
     });
 
-    stream.on('reconnect', function(req, res, connectInterval) {
-        onInfo.call(null, 'twitter - reconnected to the twitter stream api');
+    follow.on('reconnect', function(req, res, connectInterval) {
+        module.exports.emit('info', 'twitter - follower was reconnected to the twitter stream api');
     });
 
-    stream.on('tweet', function(message) {
+    follow.on('tweet', function(message) {
         if (utils.filter(message)) {
-            onMessage.call(null, utils.wash(message));
+            module.exports.emit('message', utils.wash(message));
         }
     });
 
-    stream.on('disconnect', function(message) {
-        onError.call(null, 'twitter - disconnected from the twitter stream api');
+    follow.on('disconnect', function(message) {
+        module.exports.emit('error', 'twitter - follower was disconnected from the twitter stream api');
     });
 
 };

@@ -29,14 +29,15 @@ module.exports.isClean = function(obj) {
 
 
 module.exports.filter = function(obj) {
+
     if (!self.isRealTweet(obj)) {
         return false;
     };
-
+/*
     if (!self.isLegalLanguage(obj)) {
         return false;
     }
-
+*/
     if (!self.isClean(obj)) {
         return false;
     }

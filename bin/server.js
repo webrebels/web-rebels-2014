@@ -7,9 +7,7 @@ var http    = require('http'),
     config  = require('./config.js'),
     log     = require('./log.js'),
     ws      = require('./websocket.js'),
-    server  = http.createServer(app),
-    
-    twitter     = require('./twitter');
+    server  = http.createServer(app);
 
 
 
@@ -23,32 +21,6 @@ http.globalAgent.maxSockets = Infinity;
 // Load websocket
 
 ws.init(server);
-
-
-
-// Load Twitter
-
-twitter.on('message', function(msg){
-    ws.broadcast({
-        type : 'twitter:message',
-        data : msg
-    });
-});
-
-twitter.on('info', function(msg){
-    log.info(msg);
-});
-
-twitter.on('error', function(msg){
-    log.error(msg);
-});
-
-twitter.init({
-    consumer_key: config.get('twitterConsumerKey'),
-    consumer_secret: config.get('twitterConsumerSecret'),
-    access_token: config.get('twitterAccessToken'),
-    access_token_secret: config.get('twitterAccessTokenSecret')
-}, config.get('twitterQuery'));
 
 
 
