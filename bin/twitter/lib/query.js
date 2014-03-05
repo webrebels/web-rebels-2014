@@ -2,33 +2,30 @@
 
 "use strict";
 
-var utils = require('./utils.js');
+var EventEmitter    = require('events').EventEmitter,
+    utils           = require('./utils.js');
 
 
 
-module.exports.get = function(api, query, messageLogLength, onError, onSuccess) {
+// Inherit from Event Emitter
 
-    var messages = [];
-/*
+module.exports = new EventEmitter();
 
-    api.get('users/lookup', {screen_name: ['trygve_lie', 'web_rebels']}, function(err, reply){
-        console.log(reply);
-    });
-*/
 
-    api.get('statuses/user_timeline', {screen_name: 'trygve_lie', count: messageLogLength}, function(err, reply) {
+
+module.exports.get = function(api, query, messageLogLength) {
+
+    api.get('statuses/user_timeline', {screen_name: 'trygve_lie', count: messageLogLength}, function(err, reply){ 
         if(err) {
-            onError.call(null, 'twitter - could not query twitter');
+            module.exports.emit('error', 'twitter - could not query twitter');
             return;
         }
 
         if (reply) {
-            messages = reply.filter(utils.filter).map(function(status){
+            module.exports.emit('message', reply.filter(utils.filter).map(function(status){
                 return utils.wash(status);
-            });
+            }));
         }
-
-        onSuccess.call(null, messages);
     });
 
 };

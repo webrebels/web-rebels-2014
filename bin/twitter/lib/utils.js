@@ -2,22 +2,13 @@
 
 "use strict";
 
-var self = this;
+var users   = require('./users.js'),
+    self    = this;
 
 
 
 module.exports.isRealTweet = function(obj) {
-    return (obj.text.substring(0,3).toLowerCase() !== 'rt ');
-};
-
-
-
-module.exports.isLegalLanguage = function(obj) {
-    var legalLang = {
-        'en' : true,
-        'no' : true
-    }
-    return legalLang[obj.lang] || false;
+    return users.screenNameIsUser(obj.user.screen_name);
 };
 
 
@@ -33,11 +24,7 @@ module.exports.filter = function(obj) {
     if (!self.isRealTweet(obj)) {
         return false;
     };
-/*
-    if (!self.isLegalLanguage(obj)) {
-        return false;
-    }
-*/
+
     if (!self.isClean(obj)) {
         return false;
     }

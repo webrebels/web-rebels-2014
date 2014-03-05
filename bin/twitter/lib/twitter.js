@@ -4,12 +4,13 @@
 
 var EventEmitter    = require('events').EventEmitter,
     twit            = require('twit'),
-    users          = require('./users.js'),
+    users           = require('./users.js'),
     stream          = require('./stream.js'),
     query           = require('./query.js'),
     utils           = require('./utils.js'),
 
-    messages        = [];
+    messagesFollow  = [],
+    messagesTrack   = [];
 
 
 
@@ -71,58 +72,26 @@ module.exports.listen = function(keys, keywords, messageLogLength) {
 
 
     stream.on('message', function(message){
-        console.log(message);
+        messagesFollow.unshift(message);
+        if (messagesFollow.length > messageLogLength) {
+            messagesFollow.pop();
+        }
     });
 
-
-
-
-
+    query.on('message', function(messagea){
+        messagesFollow = messagea;
+    });
 
     users.on('success', function(){
+        query.get(Twitter, keywords, messageLogLength);
         stream.follow(Twitter, users.allUserIds());
     });
-    users.lookup(Twitter, 'web_rebels', ['trygve_lie', 'bodil', 'jaffathecake']);
-
-
-
-/*
-
-    // Build a backlog of messages
-
-    query.get(Twitter, keywords, messageLogLength, function queryError(message){
-        module.exports.emit('error', message);
-
-    }, function querySuccess(msgArr){
-        messages = msgArr;
-
-    });
-*/
-
-    // Listen for new messages
-/*
-    stream.listen(Twitter, keywords, function streamError(message){
-        module.exports.emit('error', message);
-
-    }, function streamInfo(message){
-        module.exports.emit('info', message);
-
-    }, function streamMessage(message){
-        module.exports.emit('message', message);
-        
-        messages.unshift(message);
-        if (messages.length > messageLogLength) {
-            messages.pop();
-        }
-
-    });
-*/
-
+    users.lookup(Twitter, ['web_rebels', 'trygve_lie', 'hnycombinator', '0xabad1dea', 'addyosmani']);
 
 };
 
 
 
 module.exports.messages = function(){
-    return messages;
+    return messagesFollow;
 };

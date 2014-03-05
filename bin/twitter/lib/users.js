@@ -3,7 +3,6 @@
 "use strict";
 
 var EventEmitter    = require('events').EventEmitter,
-    master          = '',
     users           = {};
 
 
@@ -14,15 +13,9 @@ module.exports = new EventEmitter();
 
 
 
-module.exports.lookup = function(api, accountUser, additionalUsers) {
+module.exports.lookup = function(api, screenNames) {
 
-    var everyone = additionalUsers || [];
-    everyone.push(accountUser);
-	
-    master = accountUser;
-
-
-    api.get('users/lookup', {screen_name: everyone}, function(err, reply){
+    api.get('users/lookup', {screen_name: screenNames}, function(err, reply){
         if (err) {
             module.exports.emit('error', err);
             return;
@@ -60,8 +53,10 @@ module.exports.allUserIds = function(){
 
 
 
-// Get the id of the account user
 
-module.exports.accountUserId = function(){
-    return users[master];
+module.exports.screenNameIsUser = function(screenName){
+    if (users[screenName]) {
+        return true;
+    }
+    return false;
 };
