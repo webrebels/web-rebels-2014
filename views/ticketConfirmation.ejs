@@ -3,13 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <link rel="stylesheet" href="css/style.css">
     <title><%=pageTitle%></title>
+    <% include includes/externals.ejs %>
     <% include includes/analytics.ejs %>
 </head>
 <body>
     <% include includes/header.ejs %>
-    <p>Body - <%=pageTitle%></p>
-    <% include includes/footer.ejs %>
+    <div class="l-content">
+	   <div class="l-content-inner">
+	        <h1 class="ratherloud-heading">Thank you for registering!</h1>
+	        <p>We are really excited about you coming to our conference!<br>If there is anything you're wondering about or need help with in relation to your stay in Oslo, please just <a href="mailto:santaslittlehelpers[replace with @]webrebels.org">let us know</a> and we will try to help you.
+	        </p>
+	        <p>You will also find useful information about the city of Oslo in our survival guide (soon to be published).
+	        </p>
+	        <p>All you need at the venue is a PDF or some other digital trace of your ticket. We don't want to harm any trees.</p>
+	        <p>See you in May!<br>
+	        Much love from the Web Rebels	</p>
+        </div>
+    </div>
+        <% include includes/footer.ejs %>
 </body>
 </html>
