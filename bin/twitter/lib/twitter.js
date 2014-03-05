@@ -5,12 +5,7 @@
 var EventEmitter    = require('events').EventEmitter,
     twit            = require('twit'),
     users           = require('./users.js'),
-    stream          = require('./stream.js'),
-    query           = require('./query.js'),
-    utils           = require('./utils.js'),
-
-    messagesFollow  = [],
-    messagesTrack   = [];
+    Follow          = require('./follow.js');
 
 
 
@@ -62,36 +57,42 @@ module.exports.listen = function(keys, keywords, messageLogLength) {
     }
 
 
-    messageLogLength = messageLogLength || 10;
-
 
     // Connect to Twitter
 
     var Twitter = new twit(keys);
 
 
+    // Follow users
 
-    stream.on('message', function(message){
-        messagesFollow.unshift(message);
-        if (messagesFollow.length > messageLogLength) {
-            messagesFollow.pop();
-        }
+    var following = new Follow(Twitter, 10);
+    
+    following.on('info', function(message){
+        module.exports.emit('info', message);
     });
 
-    query.on('message', function(messagea){
-        messagesFollow = messagea;
+    following.on('error', function(message){
+        module.exports.emit('error', message);
     });
+
+    following.on('message', function(message){
+        module.exports.emit('message', message);
+    });
+
+
+    // Resolve user
 
     users.on('success', function(){
-        query.get(Twitter, keywords, messageLogLength);
-        stream.follow(Twitter, users.allUserIds());
+        var uids = users.allUserIds();
+        following.populate(uids[0]);
+        following.listen(uids);
     });
-    users.lookup(Twitter, ['web_rebels', 'trygve_lie', 'hnycombinator', '0xabad1dea', 'addyosmani']);
+    users.lookup(Twitter, ['web_rebels', 'trygve_lie', 'rem', 'codepo8', '0xabad1dea', 'addyosmani', 'jaffathecake']);
 
 };
 
 
 
 module.exports.messages = function(){
-    return messagesFollow;
+    return [];
 };

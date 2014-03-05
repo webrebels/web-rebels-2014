@@ -33,6 +33,14 @@ module.exports.lookup = function(api, screenNames) {
 
 
 
+// Get all users
+
+module.exports.allUsers = function(){
+    return users;
+};
+
+
+
 // Get the screen name of all users as an Array
 
 module.exports.allUserScreenNames = function(){
@@ -53,6 +61,7 @@ module.exports.allUserIds = function(){
 
 
 
+// Check if screen name is a registered user
 
 module.exports.screenNameIsUser = function(screenName){
     if (users[screenName]) {

@@ -7,8 +7,18 @@ var users   = require('./users.js'),
 
 
 
-module.exports.isRealTweet = function(obj) {
-    return users.screenNameIsUser(obj.user.screen_name);
+// If the user.screen_name of the tweer are _not_ among the 
+// users in the user object it is a retweet we do not want
+// in our stream.
+
+module.exports.isReTweet = function(obj) {
+    return !users.screenNameIsUser(obj.user.screen_name);
+};
+
+
+
+module.exports.isReply = function(obj) {
+    return !!obj.in_reply_to_status_id;
 };
 
 
@@ -21,9 +31,13 @@ module.exports.isClean = function(obj) {
 
 module.exports.filter = function(obj) {
 
-    if (!self.isRealTweet(obj)) {
+    if (self.isReTweet(obj)) {
         return false;
     };
+
+    if(self.isReply(obj)) {
+        return false;
+    }
 
     if (!self.isClean(obj)) {
         return false;
