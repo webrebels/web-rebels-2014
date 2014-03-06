@@ -107,7 +107,7 @@ env: {
     twitterQuery: {
         doc     : "Twitter - Word(s) to listen for",
         format  : Array,
-        default : ['@web_rebels'],
+        default : ['web_rebels'],
         env     : "TWITTER_QUERY"
     },
 

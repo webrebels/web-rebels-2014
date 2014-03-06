@@ -18,27 +18,30 @@ var config      = require('./config.js'),
 
 // Load Twitter
 
-twitter.on('message', function(msg){
+
+var T = new twitter();
+
+T.on('message', function(msg){
     ws.broadcast({
         type : 'twitter:message',
         data : msg
     });
 });
 
-twitter.on('info', function(msg){
+T.on('info', function(msg){
     log.info(msg);
 });
 
-twitter.on('error', function(msg){
+T.on('error', function(msg){
     log.error(msg);
 });
 
-twitter.listen({
+T.listen({
     consumer_key: config.get('twitterConsumerKey'),
     consumer_secret: config.get('twitterConsumerSecret'),
     access_token: config.get('twitterAccessToken'),
     access_token_secret: config.get('twitterAccessTokenSecret')
-}, config.get('twitterQuery'));
+}, config.get('twitterQuery'), 10)
 
 
 
@@ -47,7 +50,7 @@ twitter.listen({
 ws.on('connection', function(id){
     ws.send(id, {
         type: 'twitter:init',
-        data: twitter.messages()
+        data: T.messages()
     });
 });
 

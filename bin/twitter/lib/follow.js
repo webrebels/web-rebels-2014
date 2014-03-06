@@ -79,7 +79,7 @@ Follow.prototype.listen = function(userIds) {
 
 // Return a list of messages
 
-Follow.prototype.messages = function() {
+Follow.prototype.getMessages = function() {
     return this.messages;
 };
 
