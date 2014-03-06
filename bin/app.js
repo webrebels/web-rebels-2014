@@ -19,11 +19,16 @@ var config      = require('./config.js'),
 // Load Twitter
 
 
-var T = new twitter();
+var T = new twitter({
+    consumer_key: config.get('twitterConsumerKey'),
+    consumer_secret: config.get('twitterConsumerSecret'),
+    access_token: config.get('twitterAccessToken'),
+    access_token_secret: config.get('twitterAccessTokenSecret')
+});
 
-T.on('message', function(msg){
+T.on('followMessage', function(msg){
     ws.broadcast({
-        type : 'twitter:message',
+        type : 'twitter:follow:message',
         data : msg
     });
 });
@@ -36,12 +41,9 @@ T.on('error', function(msg){
     log.error(msg);
 });
 
-T.listen({
-    consumer_key: config.get('twitterConsumerKey'),
-    consumer_secret: config.get('twitterConsumerSecret'),
-    access_token: config.get('twitterAccessToken'),
-    access_token_secret: config.get('twitterAccessTokenSecret')
-}, config.get('twitterQuery'), 10)
+T.listen();
+
+T.follow(config.get('twitterFollowUsers'), config.get('twitterFollowQueLenght'));
 
 
 
@@ -49,8 +51,8 @@ T.listen({
 
 ws.on('connection', function(id){
     ws.send(id, {
-        type: 'twitter:init',
-        data: T.messages()
+        type: 'twitter:follow:init',
+        data: T.followMessages()
     });
 });
 

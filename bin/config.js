@@ -104,11 +104,18 @@ env: {
         env     : "NODE_CSS_MIN_FILE"
     },
 
-    twitterQuery: {
-        doc     : "Twitter - Word(s) to listen for",
+    twitterFollowUsers: {
+        doc     : "Twitter - Users to follow",
         format  : Array,
         default : ['web_rebels'],
-        env     : "TWITTER_QUERY"
+        env     : "TWITTER_FOLLOW_USERS"
+    },
+
+    twitterFollowQueLenght: {
+        doc     : "Twitter - Number of follow messages to internaly keep",
+        format  : Number,
+        default : 20,
+        env     : "TWITTER_FOLLOW_QUE_LENGHT"
     },
 
     twitterConsumerKey: {

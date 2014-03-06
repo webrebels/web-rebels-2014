@@ -21,52 +21,50 @@ var EventEmitter    = require('events').EventEmitter,
 //    access_token_secret: "na"
 // }
 
-var Twitter = function() {
-    this.Connection;
+var Twitter = function(keys) {
+    this.connection;
     this.following;
+    this.keys = keys;
 }
 inherits(Twitter, EventEmitter);
 
 
 
-Twitter.prototype.listen = function(keys, keywords, count) {
+Twitter.prototype.listen = function() {
 
-    var self = this;
-
-    if (!keys.consumer_key) {
+    if (!this.keys.consumer_key) {
         this.emit('error', 'twitter - "consumer_key" not provided - service is disabled');
         return;
     }
 
-    if (!keys.consumer_secret) {
+    if (!this.keys.consumer_secret) {
         this.emit('error', 'twitter - "consumer_secret" not provided - service is disabled');
         return;
     }
 
-    if (!keys.access_token) {
+    if (!this.keys.access_token) {
         this.emit('error', 'twitter - "access_token" not provided - service is disabled');
         return;
     }
 
-    if (!keys.access_token_secret) {
+    if (!this.keys.access_token_secret) {
         this.emit('error', 'twitter - "access_token_secret" not provided - service is disabled');
         return;
     }
 
-    if (!keywords) {
-        this.emit('error', 'twitter - "keywords" not provided - service is disabled');
-        return;
-    }
+    this.connection = new twit(this.keys);
+
+};
 
 
-    // Connect to Twitter
 
-    this.Connection = new twit(keys);
+// Follow users
 
+Twitter.prototype.follow = function(screenNames, count) {
 
-    // Follow users
+    var self = this;
 
-    this.following = new Follow(this.Connection, count);
+    this.following = new Follow(this.connection, count);
     
     this.following.on('info', function(message){
         self.emit('info', message);
@@ -77,7 +75,7 @@ Twitter.prototype.listen = function(keys, keywords, count) {
     });
 
     this.following.on('message', function(message){
-        self.emit('message', message);
+        self.emit('followMessage', message);
     });
 
 
@@ -88,12 +86,12 @@ Twitter.prototype.listen = function(keys, keywords, count) {
         self.following.populate(uids[0]);
         self.following.listen(uids);
     });
-    users.lookup(this.Connection, keywords);
+    users.lookup(this.connection, screenNames);
 };
 
 
 
-Twitter.prototype.messages = function() {
+Twitter.prototype.followMessages = function() {
     return this.following.getMessages();
 };
 

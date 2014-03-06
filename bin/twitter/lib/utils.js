@@ -50,12 +50,11 @@ module.exports.filter = function(obj) {
 
 module.exports.wash = function(obj) {
     return { 
-        timestamp: obj.created_at,
-        id: obj.id_str,
-        lang: obj.lang,
-        text: obj.text,
-        userName: obj.user.name,
-        userScreenName: obj.user.screen_name,
-        userImageUrl: obj.user.profile_image_url
+        id      : obj.id_str,
+        time    : obj.created_at,
+        text    : obj.text,
+        name    : obj.user.name,
+        user    : obj.user.screen_name,
+        image   : obj.user.profile_image_url
      };
 };

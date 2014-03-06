@@ -31,7 +31,7 @@ Follow.prototype.populate = function(userIds) {
         }
 
         if (reply) {
-            self.messages.push(reply.filter(utils.filter).map(function(status){
+            self.messages = self.messages.concat(reply.filter(utils.filter).map(function(status){
                 return utils.wash(status);
             }));
             self.emit('info', 'twitter - follower populated messages into backlog');
