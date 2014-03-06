@@ -7,7 +7,11 @@
     "jsFiles" : [
         "/js/lib/leaflet-0.7.1/leaflet-src.js",
         "/js/lib/derp-modules.js",
+        "/js/lib/tag.js",
+        "/js/lib/dom.js",
         "/js/map.js",
+        "/js/twitter.utils.js",
+        "/js/twitter.js",
         "/js/ws.utils.js",
         "/js/ws.connection.js",
         "/js/init.js"

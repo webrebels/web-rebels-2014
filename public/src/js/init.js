@@ -1,25 +1,19 @@
 /* jshint browser: true, strict: true */
+/* global define */
 
 define('init', function(require, exports) {
 
     "use strict";
 
-    var ws = require('ws.connection');
-
-    ws.on('error', function(obj){
-        console.log('error', obj);
-    });
-
-    ws.on('open', function(){
-        console.log('open');
-    });
+    var twitter     = require('twitter'),
+        ws          = require('ws.connection');
+        
 
     ws.on('message', function(obj){
-        console.log('message', obj);
-    });
-
-    ws.on('close', function(){
-        console.log('close');
+        var type = obj.type.split(':');
+        if (type[0] === 'twitter') {
+            twitter.render(obj.type, obj.data);
+        }
     });
 
     ws.connect();
