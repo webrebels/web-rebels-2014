@@ -8,7 +8,8 @@ define('twitter', function(require, exports) {
     var tag             = require('tag').tag,
         dom             = require('dom'),
         utils           = require('twitter.utils'),
-        followElement   = document.getElementById('twitter-follow');
+        followElement   = document.getElementById('twitter-follow'),
+        listElement;
     
 
     function renderContainer() {
@@ -28,19 +29,22 @@ define('twitter', function(require, exports) {
 
 
     exports.render = function(type, data){
-        var list;
 
         if (!followElement) {
             return false;
         }
 
         if (type === 'twitter:follow:init') {
-            list = dom.iterateAndComposeTemplates(data, renderContainer, renderMessage);
-            followElement.appendChild(list);
+            listElement = dom.iterateAndComposeTemplates(data, renderContainer, renderMessage);
+            dom.removeChildElements(followElement);
+            followElement.appendChild(listElement);
         }
 
         if (type === 'twitter:follow:message') {
-
+            if (listElement) {
+                dom.addFirstChildElement(listElement, renderMessage(data));
+                dom.removeLastChildElement(listElement);
+            }
         }
 
     };
