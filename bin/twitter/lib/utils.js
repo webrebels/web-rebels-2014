@@ -33,7 +33,7 @@ module.exports.filter = function(obj) {
 
     if (self.isReTweet(obj)) {
         return false;
-    };
+    }
 
     if(self.isReply(obj)) {
         return false;

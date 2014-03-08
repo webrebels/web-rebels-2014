@@ -18,7 +18,7 @@
   ],
   "homepage": "https://www.webrebels.org/",
   "scripts": {
-    "pretest": "jshint ./bin/*.js ./gulpfile.js ./public/src/js/*.js",
+    "pretest": "jshint ./bin/*.js ./bin/twitter/lib/*.js ./gulpfile.js ./public/src/js/lib/*.js ./public/src/js/*.js",
     "test": "mocha ./test/*.js --reporter spec",
     "start": "node ./bin/server.js",
     "minify": "gulp"

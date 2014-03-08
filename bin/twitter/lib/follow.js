@@ -14,7 +14,7 @@ var Follow = function(connection, count) {
     this.connection = connection;
     this.count = count || 100;
     this.messages = [];
-}
+};
 inherits(Follow, EventEmitter);
 
 

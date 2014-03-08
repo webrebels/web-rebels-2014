@@ -22,10 +22,10 @@ var EventEmitter    = require('events').EventEmitter,
 // }
 
 var Twitter = function(keys) {
-    this.connection;
-    this.following;
+    this.connection = null;
+    this.following = null;
     this.keys = keys;
-}
+};
 inherits(Twitter, EventEmitter);
 
 
