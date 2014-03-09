@@ -93,7 +93,7 @@ define('tag', function(require, exports) {
                 for( var a = 0; a < args.length; a++ ){
 
                     // Check if the argument is an object holding attributes
-                    if(args[ a ] instanceof Object && !( args[ a ].nodeType == 1 /*instanceof HTMLElement*/)){
+                    if(args[ a ] instanceof Object && !(args[a].nodeType == 1 /*instanceof HTMLElement*/)){
 
                         var att = args[ a ];
 
@@ -150,7 +150,7 @@ define('tag', function(require, exports) {
 
             return el;
 
-        }
+        };
     }
 
     exports.tag = new Tag();

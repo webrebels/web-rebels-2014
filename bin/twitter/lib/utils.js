@@ -2,8 +2,7 @@
 
 "use strict";
 
-var users   = require('./users.js'),
-    self    = this;
+var users   = require('./users.js');
 
 
 
@@ -31,15 +30,15 @@ module.exports.isClean = function(obj) {
 
 module.exports.filter = function(obj) {
 
-    if (self.isReTweet(obj)) {
+    if (module.exports.isReTweet(obj)) {
         return false;
     }
 
-    if(self.isReply(obj)) {
+    if(module.exports.isReply(obj)) {
         return false;
     }
 
-    if (!self.isClean(obj)) {
+    if (!module.exports.isClean(obj)) {
         return false;
     }
 

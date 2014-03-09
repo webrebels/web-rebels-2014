@@ -74,5 +74,6 @@ function define(id, callback) {
   // Assign module to to namespace. If `callback` returns a value, use that
   // as the module value. Otherwise, use `exports`. Allowing return values
   // makes define compatible with a greater subset of AMD code.
-  return modules[id] = callback(require, exports) || exports;
+  var result = modules[id] = callback(require, exports) || exports; 
+  return result;
 }
