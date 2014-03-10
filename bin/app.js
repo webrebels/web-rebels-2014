@@ -7,6 +7,8 @@ var config      = require('./config.js'),
     log         = require('./log.js'),
     ws          = require('./websocket.js'),
     express     = require('express'),
+    compress    = require('compression')(),
+    serveStatic = require('serve-static'),
     twitter     = require('./twitter'),
     app         = express(),
     externals   = {
@@ -68,8 +70,8 @@ app.enable('trust proxy');
 // Set middleware
 
 app.use(middleware.ensureSSL);
-app.use(express.compress());
-app.use(express.static(config.get('docRoot')));
+app.use(compress);
+app.use(serveStatic(config.get('docRoot')));
 
 
 
