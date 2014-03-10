@@ -64,6 +64,10 @@ Twitter.prototype.follow = function(screenNames, count) {
 
     var self = this;
 
+    if (!this.connection) {
+        return;
+    }
+
     this.following = new Follow(this.connection, count);
     
     this.following.on('info', function(message){
@@ -92,6 +96,9 @@ Twitter.prototype.follow = function(screenNames, count) {
 
 
 Twitter.prototype.followMessages = function() {
+    if (!this.connection) {
+        return [];
+    }
     return this.following.getMessages();
 };
 
