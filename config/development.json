@@ -2,10 +2,10 @@
 	"cssFiles" : [
         "/webfonts/ratherloud/stylesheet.css",
         "/css/style.css",
-        "/js/lib/leaflet-0.7.1/leaflet.css"
+        "/js/lib/leaflet-0.7.2/leaflet.css"
     ],
     "jsFiles" : [
-        "/js/lib/leaflet-0.7.1/leaflet-src.js",
+        "/js/lib/leaflet-0.7.2/leaflet-src.js",
         "/js/lib/derp-modules.js",
         "/js/lib/tag.js",
         "/js/lib/dom.js",
