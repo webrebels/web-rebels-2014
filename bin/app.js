@@ -99,8 +99,8 @@ app.get('/sponsoroptions', function(req,res){
 app.get('/about', function(req,res){
     res.render('about', {externals: externals, pageTitle: '☠ About the Web Rebels ☠'});
 });
-app.get('/speakerpolicy', function(req,res){
-    res.render('speakerpolicy', {externals: externals, pageTitle: '☠ Sponsor- and monetray policies for the Web Rebels ☠'});
+app.get('/policies', function(req,res){
+    res.render('policies', {externals: externals, pageTitle: '☠ Policies for the Web Rebels ☠'});
 });
 app.get('/tickets', function(req,res){
     res.render('tickets', {externals: externals, pageTitle: 'Tickets for the Web Rebels ☠ Oslo 2014'});
