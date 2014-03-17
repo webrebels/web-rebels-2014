@@ -118,6 +118,20 @@ env: {
         env     : "TWITTER_FOLLOW_QUE_LENGHT"
     },
 
+    twitterTrackKeywords: {
+        doc     : "Twitter - Keywords to track",
+        format  : Array,
+        default : ['webrebels'],
+        env     : "TWITTER_TRACK_KEYWORDS"
+    },
+
+    twitterTrackQueLenght: {
+        doc     : "Twitter - Number of tracking messages to internaly keep",
+        format  : Number,
+        default : 20,
+        env     : "TWITTER_TRACK_QUE_LENGHT"
+    },
+
     twitterConsumerKey: {
         doc     : "Twitter API - consumer key",
         format  : "*",

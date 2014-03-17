@@ -35,6 +35,13 @@ T.on('followMessage', function(msg){
     });
 });
 
+T.on('trackMessage', function(msg){
+    ws.broadcast({
+        type : 'twitter:follow:message',
+        data : msg
+    });
+});
+
 T.on('info', function(msg){
     log.info(msg);
 });
@@ -43,9 +50,11 @@ T.on('error', function(msg){
     log.error(msg);
 });
 
+
 T.listen();
 
 T.follow(config.get('twitterFollowUsers'), config.get('twitterFollowQueLenght'));
+T.track(config.get('twitterTrackKeywords'), config.get('twitterTrackQueLenght'));
 
 
 

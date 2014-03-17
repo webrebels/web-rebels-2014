@@ -6,7 +6,8 @@ var EventEmitter    = require('events').EventEmitter,
     inherits        = require('util').inherits,
     twit            = require('twit'),
     users           = require('./users.js'),
-    Follow          = require('./follow.js');
+    Follow          = require('./follow.js'),
+    Track           = require('./track.js');
 
 
 
@@ -24,6 +25,7 @@ var EventEmitter    = require('events').EventEmitter,
 var Twitter = function(keys) {
     this.connection = null;
     this.following = null;
+    this.tracking = null;
     this.keys = keys;
 };
 inherits(Twitter, EventEmitter);
@@ -100,6 +102,59 @@ Twitter.prototype.followMessages = function() {
         return [];
     }
     return this.following.getMessages();
+};
+
+
+
+// Track keywords
+
+Twitter.prototype.track = function(keywords, count) {
+    
+    var self = this;
+
+    if (!this.connection) {
+        return;
+    }
+
+    this.tracking = new Track(this.connection, count);
+
+    this.tracking.on('info', function(message){
+        self.emit('info', message);
+    });
+
+    this.tracking.on('error', function(message){
+        self.emit('error', message);
+    });
+
+    this.tracking.on('message', function(message){
+        self.emit('trackMessage', message);
+    });
+    
+    this.tracking.populate(keywords);
+    this.tracking.listen(keywords);
+};
+
+
+
+Twitter.prototype.trackMessages = function() {
+    if (!this.connection) {
+        return [];
+    }
+    return this.tracking.getMessages();
+};
+
+
+
+// Set a list of blacklisted users
+
+Twitter.prototype.setBlacklist = function(blacklist) {
+    if (this.following) {
+        this.following.setBlacklist(blacklist);
+    }
+    
+    if (this.tracking) {
+        this.tracking.setBlacklist(blacklist);
+    }
 };
 
 

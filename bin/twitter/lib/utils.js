@@ -2,19 +2,17 @@
 
 "use strict";
 
-var users   = require('./users.js');
 
 
-
-// If the user.screen_name of the tweer are _not_ among the 
-// users in the user object it is a retweet we do not want
-// in our stream.
+// Filter out retweets messages
 
 module.exports.isReTweet = function(obj) {
-    return !users.screenNameIsUser(obj.user.screen_name);
+    return !!obj.retweeted_status;
 };
 
 
+
+// Filter out reply to messages
 
 module.exports.isReply = function(obj) {
     return !!obj.in_reply_to_status_id;
@@ -22,13 +20,17 @@ module.exports.isReply = function(obj) {
 
 
 
-module.exports.isClean = function(obj) {
-    return true;
+// Filter out messages from blacklisted users
+
+module.exports.isBlacklisted = function(obj, blacklist) {
+    return (blacklist.indexOf(obj.user.screen_name.toLowerCase()) !== -1);
 };
 
 
 
-module.exports.filter = function(obj) {
+module.exports.filter = function(obj, blacklist) {
+
+    blacklist = blacklist || [];
 
     if (module.exports.isReTweet(obj)) {
         return false;
@@ -38,7 +40,7 @@ module.exports.filter = function(obj) {
         return false;
     }
 
-    if (!module.exports.isClean(obj)) {
+    if (!module.exports.isBlacklisted(obj, blacklist)) {
         return false;
     }
 

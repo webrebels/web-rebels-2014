@@ -11,9 +11,10 @@ var EventEmitter    = require('events').EventEmitter,
 // Object - Inherits from EventEmitter
 
 var Follow = function(connection, count) {
-    this.connection = connection;
-    this.count = count || 100;
-    this.messages = [];
+    this.connection     = connection;
+    this.count          = count || 100;
+    this.messages       = [];
+    this.blacklist      = [];
 };
 inherits(Follow, EventEmitter);
 
@@ -31,7 +32,9 @@ Follow.prototype.populate = function(userIds) {
         }
 
         if (reply) {
-            self.messages = self.messages.concat(reply.filter(utils.filter).map(function(status){
+            self.messages = self.messages.concat(reply.filter(function(msg){
+                return utils.filter(msg, self.blacklist);
+            }).map(function(status){
                 return utils.wash(status);
             }));
             self.emit('info', 'twitter - follower populated messages into backlog');
@@ -60,7 +63,7 @@ Follow.prototype.listen = function(userIds) {
     });
 
     stream.on('tweet', function(message) {
-        if (utils.filter(message)) {
+        if (utils.filter(message, self.blacklist)) {
             self.messages.unshift(utils.wash(message));
             if (self.messages.length > self.count) {
                 self.messages.pop();
@@ -81,6 +84,14 @@ Follow.prototype.listen = function(userIds) {
 
 Follow.prototype.getMessages = function() {
     return this.messages;
+};
+
+
+
+// Set a list of blacklisted users
+
+Follow.prototype.setBlacklist = function(blacklist) {
+    this.blacklist = blacklist;
 };
 
 
