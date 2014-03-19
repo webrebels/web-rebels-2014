@@ -61,7 +61,6 @@ When logged in your able to operate the applications running on Nodejitsu.
 To deploy this application to Nodejitsu, run the following commands:
 
     cd {project_path}
-    npm run-script minify
     jitsu deploy
 
 Then accept the updating of the applications version number and then the 

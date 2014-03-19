@@ -37,7 +37,7 @@ T.on('followMessage', function(msg){
 
 T.on('trackMessage', function(msg){
     ws.broadcast({
-        type : 'twitter:follow:message',
+        type : 'twitter:track:message',
         data : msg
     });
 });
