@@ -29,6 +29,7 @@ var T = new twitter({
 });
 
 T.on('followMessage', function(msg){
+    log.debug('twitter - follow message', msg);
     ws.broadcast({
         type : 'twitter:follow:message',
         data : msg
@@ -36,6 +37,7 @@ T.on('followMessage', function(msg){
 });
 
 T.on('trackMessage', function(msg){
+    log.debug('twitter - track message', msg);
     ws.broadcast({
         type : 'twitter:track:message',
         data : msg

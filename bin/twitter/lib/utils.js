@@ -30,17 +30,15 @@ module.exports.isBlacklisted = function(obj, blacklist) {
 
 module.exports.filter = function(obj, blacklist) {
 
-    blacklist = blacklist || [];
-
     if (module.exports.isReTweet(obj)) {
         return false;
     }
 
-    if(module.exports.isReply(obj)) {
+    if (module.exports.isReply(obj)) {
         return false;
     }
 
-    if (!module.exports.isBlacklisted(obj, blacklist)) {
+    if (module.exports.isBlacklisted(obj, blacklist)) {
         return false;
     }
 
@@ -51,11 +49,11 @@ module.exports.filter = function(obj, blacklist) {
 
 module.exports.wash = function(obj) {
     return { 
-        id      : obj.id_str,
-        time    : obj.created_at,
-        text    : obj.text,
-        name    : obj.user.name,
-        user    : obj.user.screen_name,
-        image   : obj.user.profile_image_url
+        timestamp       : obj.created_at,
+        id_str          : obj.id_str,
+        text            : obj.text,
+        name            : obj.user.name,
+        screenName      : obj.user.screen_name,
+        profileImageUrl : obj.user.profile_image_url
      };
 };
