@@ -137,6 +137,9 @@ app.get('/speakers', function(req,res){
 app.get('/roadbook', function(req,res){
     res.render('roadbook', {externals: externals, pageTitle: 'Speakers Roadbook - Web Rebels ☠ Oslo 2014'});
 });
+app.get('/tour', function(req,res){
+    res.render('tour/index', {pageTitle: 'Web Rebels ☠ Nodeschool.io Tour of Norway'});
+});
 
 
 

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title><%=pageTitle%></title>
+    <style type="text/css">
+      /* Base ------------------------------------------------------*/
+
+      html {
+         font-family: monospace;
+         font-size: 18px;
+         line-height: 1.5;
+      }
+
+      body {
+         background-color: #fff;
+         color: #222;
+         margin: 0;
+         padding: 0;
+      }
+
+      a {
+         text-decoration: none;
+         font-weight: bold;
+      }
+
+      a:link,
+      a:visited {
+         color: #EF3D30;
+      }
+
+      a:hover,
+      a:focus,
+      a:active {
+         color: #AF2825;
+      }
+
+      ::selection {
+         background:#ccc;
+      }
+
+      ::-moz-selection {
+         background:#ccc;
+      }
+
+      img {
+         max-width: 100%;
+      }
+
+      article, aside, figure, footer, header, nav, section {
+         display: block;
+      }
+
+      h1, h2, h3 {
+         font-family: Impact, "HelveticaNeue-CondensedBlack", sans-serif; 
+         font-weight: normal; 
+         font-style: normal;
+         text-transform: uppercase;
+         line-height: 1;
+         margin: 0;
+         color: #EF3D30;
+      }
+
+      h1 {
+         font-size: 3em;
+      }
+
+      h2 {
+         font-size: 2em;
+      }
+
+      @media screen and (min-width: 1000px) {
+         h1 {
+            font-size: 5em;
+         }
+         
+         h2 {
+            font-size: 3em;
+         }   
+      }
+
+      p {
+         margin: 0 0 1em 0;
+         max-width: 38em;
+      }
+
+      ul {
+         margin: 0;
+         padding: 0;
+      }
+
+      .paperstrip {
+         background-color: #fff;
+         display: inline-block;
+         margin-bottom: 10px;
+      }
+
+
+      /* Layout
+      ------------------------------------------------------*/
+
+
+      body {
+         border-top: 12px solid #222;
+         background: url(img/tour/bg01.png) no-repeat 50% 0%;
+      }
+
+      .header {
+         max-width: 95%;
+         margin: 0 auto;
+      }
+
+      .content {
+         max-width: 95%;
+         margin: 0 auto;
+      }
+
+      .footer {
+         padding: 10em 3em 1em 3em; 
+      }
+
+
+
+
+      /* Modules
+      ------------------------------------------------------*/
+
+      .header {
+         margin-bottom: 1em;
+      }
+
+      .header-title {
+         text-transform: none;
+         text-shadow: 3px 2px 0px #222;
+         padding-top: 10px;
+         margin-bottom: 10px;
+      }
+
+      .header-subtitle {
+         background-color: #fff;
+         color: #222;
+         padding: 1px 10px;
+
+      }
+
+      .header-logo {
+         min-width: 100px;
+         max-width: 20%;
+         margin-top: 10px;
+         float: right;
+      }
+
+      @media screen and (min-width: 1000px) {
+         .header {
+
+         }
+         .header-title {
+            font-size: 10em;
+            padding-top: 0;
+            -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+         }
+        .header-subtitle {
+            font-size: 3em;
+            display: inline-block;
+            -webkit-transform: rotate(0.5deg);
+            transform: rotate(0.5deg);
+         }
+      }
+
+      @media screen and (min-width: 1100px) {
+         .header-logo {
+            max-width: 180px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+         }
+      }
+
+      .intro {
+         max-width: 44em;
+         margin-bottom: 1em;  
+      }
+
+      .intro-txt {
+         background-color: #fff;
+         display: inline;
+         padding: 3px;
+      }
+
+      .intro:after {
+         content: ".";
+         display: block;
+         height: 0;
+         clear: both;
+         visibility: hidden;
+      }
+
+      .intro-linx {
+         list-style-type: none;
+      }
+
+      .intro-linx li {
+         float: left;
+         display: inline-block;
+         margin-right: 1em;
+      }
+
+      .intro-linx li a {
+         background-color: #fff;
+         padding: 1px 3px; 
+      }
+
+      .intro-linx li a:hover {
+         background-color: #EF3D30;
+         color: #fff;
+      }
+
+      @media screen and (min-width: 1000px) {
+         .intro {
+            -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+            line-height: 2;
+            margin-left: 1em;
+         }   
+         .intro-txt {
+            background-color: #fff;
+            display: inline;
+            padding: 3px;
+         }
+         .intro-linx {
+            -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+         }
+      }
+
+      .events {
+
+      }
+
+      .events:after {
+         content: ".";
+         display: block;
+         height: 0;
+         clear: both;
+         visibility: hidden;
+      }
+
+      .event-container {
+         list-style-type: none;
+         text-align: center;
+      }
+
+      .event-item {
+         padding: 0.5em;
+         background-color: #fff; 
+         border: 12px solid #222;
+         margin: 10px auto;
+         max-width: 260px;
+         margin: 1em auto;
+      }
+
+      @media screen and (min-width: 1000px) {
+         .event-item {
+            margin: 1em;
+            float: left;
+         }
+      }
+
+      .event-btn a {
+         display: inline-block;
+         border: 3px solid #EF3D30;
+         padding: 2px 20px;
+      }
+
+      .event-btn a:hover {
+         background-color: #EF3D30;
+         color: #fff;
+      }
+
+      .sponsors {
+         list-style-type: none;
+         margin: 0;
+      }
+
+      .sponsors > li {
+         display: inline-block;
+      }
+      </style>
+   <% include ../includes/analytics.ejs %>
+</head>
+<body>
+
+<div class="header">
+   <h1 class="header-title">NodeSchool Tour of Norway</h1>
+   <h2 class="header-subtitle">with Max Ogden and Jessica&nbsp;Lord</h2>
+   <a href="http://nodeschool.io/" title="nodeschool.io"><img class="header-logo" src="img/tour/nodeschool.svg" alt=""></a>
+</div>
+
+<div class="content">
+   <div class="intro">
+      <p class="intro-txt">
+         Learn how to use node.js, npm and other related tools by writing code 
+         to solve realistic problems. The choose-your-own-adventure style lessons 
+         run in your terminal and work on Windows, Mac and Linux.
+      </p>
+      <ul class="intro-linx">
+         <li><a href="http://nodeschool.io/" title="nodeschool.io">nodeschool.io</a></li>
+         <li><a href="http://maxogden.com/" title="maxogden.com">maxogden.com</a>   </li>
+         <li><a href="http://jlord.us/" title="jlord.us">jlord.us</a>               </li>
+      </ul>
+   </div>
+   <div class="events">
+      <ul class="event-container">
+         <li class="event-item osl">
+            <h2>Oslo</h2>
+            <p>24 May 2014</p>
+            <p>12:00 - 14:00 at the Fronter office</p>
+            <p>Price: 100 NOK<a href="#price">*</a></p>
+            <p class="event-btn"><a href="#">Sign me up!</a></p>
+            <p>Brought to you by:<br><img src="img/sponsors/fronter.png"></p>
+         </li>   
+         <li class="event-item trd">
+            <h2>Trondheim</h2>
+            <p>25 May 2014</p>
+            <p>Time and place TBD</p>
+            <p>Price: 100 NOK<a href="#price">*</a></p>
+            <p class="event-btn"><a href="#">Sign me up!</a></p>
+            <p>Brought to you by:<br>
+               <a href="http://bartjs.github.io/">BartJS</a><br>
+               <img src="img/sponsors/fronter.png">
+            </p>
+         </li>
+         <li class="event-item bgo">
+            <h2>Bergen</h2>
+            <p>27 May 2014</p>
+            <p>Time and place TBD</p>  
+            <p>Price: 100 NOK<a href="#price">*</a></p>
+            <p class="event-btn"><a href="#">Sign me up!</a></p>
+            <p>Brought to you by:<br>
+               <a href="http://boosterconf.no">Booster Conference</a><br>
+               <img src="img/sponsors/fronter.png">
+            </p>
+         </li>
+      </ul>
+   </div>
+   <div><a name="price"></a>
+      <h2>What's with the price tag?</h2>
+      <p style="background-color:white;">NodeSchool events are limited in size and we want to avoid people signing up but not showing up. The entire amount will be donated to the meetup groups helping us or to another good purpose.</p>
+   </div>
+</div>
+
+</body>
+</html>
