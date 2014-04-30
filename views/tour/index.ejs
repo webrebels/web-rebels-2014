@@ -144,19 +144,14 @@
 
       }
 
-      .header-logo {
-         min-width: 100px;
-         max-width: 20%;
-         margin-top: 10px;
-         float: right;
-      }
+
 
       @media screen and (min-width: 1000px) {
          .header {
 
          }
          .header-title {
-            font-size: 10em;
+            font-size: 9em;
             padding-top: 0;
             -webkit-transform: rotate(-1deg);
             transform: rotate(-1deg);
@@ -169,14 +164,48 @@
          }
       }
 
-      @media screen and (min-width: 1100px) {
-         .header-logo {
-            max-width: 180px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-         }
-      }
+
+      
+.header-logos {
+   list-style: none;
+   text-align: center;
+}
+
+.header-logo1 {
+   max-width: 120px;
+}
+
+@media screen and (min-width: 600px) {
+   .header-logos {
+      text-align: left;
+      position: relative;
+      height: 220px;
+      padding: 10px;
+   }
+   .header-logo1 {
+      max-width: 200px;
+   }  
+   .header-logo2 {
+      position: absolute;
+      left: 240px;
+      top: 20px;
+   }  
+   .header-logo3 {
+      position: absolute;
+      left: 230px;
+      top: 130px;
+   }
+}
+
+@media screen and (min-width: 1300px) {
+   .header-logos {
+      text-align: left;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      width: 440px;
+   }
+}
 
       .intro {
          max-width: 44em;
@@ -265,6 +294,7 @@
          .event-item {
             margin: 1em;
             float: left;
+            width: 260px;
          }
       }
 
@@ -293,9 +323,13 @@
 <body>
 
 <div class="header">
-   <h1 class="header-title">NodeSchool Tour of Norway</h1>
+   <h1 class="header-title">NodeSchool Norway&nbsp;Tour</h1>
    <h2 class="header-subtitle">with Max Ogden and Jessica&nbsp;Lord</h2>
-   <a href="http://nodeschool.io/" title="nodeschool.io"><img class="header-logo" src="img/tour/nodeschool.svg" alt=""></a>
+   <ul class="header-logos">
+      <li><a href="http://nodeschool.io/" title="nodeschool.io"><img class="header-logo1" src="img/tour/nodeschool.svg" alt=""></a></li>
+      <li><a href="#" title="Fronter/Pearson"><img class="header-logo2" src="img/sponsors/fronter.png" alt=""></a></li>
+      <li><a href="http://webrebels.org/" title="Web Rebels"><img class="header-logo3" src="img/tour/webrebels.png" alt=""></a></li>
+   </ul>
 </div>
 
 <div class="content">
@@ -318,7 +352,7 @@
             <p>24 May 2014</p>
             <p>12:00 - 14:00 at the Fronter office</p>
             <p>Price: 100 NOK<a href="#price">*</a></p>
-            <p class="event-btn"><a href="#">Sign me up!</a></p>
+            <p class="event-btn"><a href="https://www.eventbrite.com/e/nodeschool-oslo-nodeschool-tour-of-norway-2014-tickets-11475233733">Sign me up!</a></p>
             <p>Brought to you by:<br><img src="img/sponsors/fronter.png"></p>
          </li>   
          <li class="event-item trd">
@@ -326,7 +360,7 @@
             <p>25 May 2014</p>
             <p>Time and place TBD</p>
             <p>Price: 100 NOK<a href="#price">*</a></p>
-            <p class="event-btn"><a href="#">Sign me up!</a></p>
+            <p class="event-btn"><a href="https://www.eventbrite.com/e/nodeschool-trondheim-nodeschool-tour-of-norway-2014-tickets-11445615143">Sign me up!</a></p>
             <p>Brought to you by:<br>
                <a href="http://bartjs.github.io/">BartJS</a><br>
                <img src="img/sponsors/fronter.png">
@@ -337,7 +371,7 @@
             <p>27 May 2014</p>
             <p>Time and place TBD</p>  
             <p>Price: 100 NOK<a href="#price">*</a></p>
-            <p class="event-btn"><a href="#">Sign me up!</a></p>
+            <p class="event-btn"><a href="https://www.eventbrite.com/e/nodeschool-bergen-nodeschool-tour-of-norway-2014-tickets-11475215679">Sign me up!</a></p>
             <p>Brought to you by:<br>
                <a href="http://boosterconf.no">Booster Conference</a><br>
                <img src="img/sponsors/fronter.png">
