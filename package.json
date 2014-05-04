@@ -60,8 +60,8 @@
     "gulp-minify-css": "latest"
   },
   "dependencies": {
-    "serve-static": "1.0.x",
-    "compression": "1.0.x",
+    "serve-static": "1.x",
+    "compression": "1.x",
     "websocket": "1.0.x",
     "winston": "0.7.x",
     "convict": "0.4.x",
