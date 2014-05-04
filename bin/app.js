@@ -125,6 +125,9 @@ app.get('/location', function(req,res){
 app.get('/oslo', function(req,res){
     res.render('oslo', {externals: externals, pageTitle: 'Oslo survival guide for Web Rebels ☠ Oslo 2014'});
 });
+app.get('/family', function(req,res){
+    res.render('family', {externals: externals, pageTitle: 'Family guide for Web Rebels ☠ Oslo 2014'});
+});
 app.get('/openmic', function(req,res){
     res.render('openmic', {externals: externals, pageTitle: 'Open Mic Night - Web Rebels ☠ Oslo 2014'});
 });
