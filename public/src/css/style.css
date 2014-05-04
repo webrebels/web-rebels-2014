@@ -682,8 +682,18 @@ a.schedule-link {
   font-weight: bold;
 }
 
-
-
+/** Oslo guide **/
+.oslo .item img {
+    display: none;
+}
+.oslo article {
+    border: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+.oslo h2 a {
+    border: 0;
+}
 
 
 
