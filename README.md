@@ -88,5 +88,5 @@ Then add the CSS file to the `cssFiles` Array or add the JS file to the
 `jsFiles` Array in `./config/development.json`. Then restart the server
 and the file will be appended to the head of the document.
 
-It is important these files is added here because this information is used
-when one build the application before its pushed to production.
+It is important that these files is added here because this information 
+is used when one build the application before its pushed to production.
