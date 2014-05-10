@@ -82,14 +82,11 @@ rules when developing.
 ## I want to add some CSS or JS to the application
 
 If you want to add a new CSS og JS file to the application, this is done
-by placing the CSS file in ```./public/src/css/``` or the JS file in
-```./public/src/js/```.
+by placing the CSS file in `./public/src/css/` or the JS file in `./public/src/js/`.
 
-Then add the CSS file to the ```cssFiles``` Array or add the JS file to the 
-```jsFiles``` Array in ```./config/development.json```. Then restart the server
+Then add the CSS file to the `cssFiles` Array or add the JS file to the 
+`jsFiles` Array in `./config/development.json`. Then restart the server
 and the file will be appended to the head of the document.
 
 It is important these files is added here because this information is used
 when one build the application before its pushed to production.
-
-## Twitter
