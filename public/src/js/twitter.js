@@ -21,7 +21,7 @@ define('twitter', function(require, exports) {
     function renderMessage(obj) {
         return tag.li(
             {cls:'msg'}, 
-            tag.span({cl: 'time'}, utils.parseDate(obj.time)),
+            tag.span({cl: 'time'}, utils.parseDate(obj.timestamp)),
             tag.span({cl: 'text', ih : utils.parseText(obj.text)})
         );
     }
