@@ -18,14 +18,20 @@ define('streaming', function(require, exports) {
     function buildPlayer(width, height) {
         return tag.div(
             {cl:'stream', id:'streaming'}, 
-            tag.iframe({id: 'iframe_player', 
-                        width: width, 
-                        height: height, 
-                        frameborder: '0', 
-                        scrolling: 'no', 
-                        src:'https://publisher.qbrick.com/Embed.aspx?mcid=8360C870C943EA96&width='+width+'&height='+height+'&sp=0'
-            })
-        );
+                tag.iframe({id: 'iframe_player', 
+                            width: width, 
+                            height: height, 
+                            frameborder: '0', 
+                            scrolling: 'no', 
+                            src:'https://publisher.qbrick.com/Embed.aspx?mcid=8360C870C943EA96&width='+width+'&height='+height+'&sp=0'
+                }),
+                tag.div({cl:'partner'},
+                    tag.a({href:'http://utvikling.amedia.no/'},
+                        tag.img({src:'/img/sponsors/amedia.png', width: 100, height: 50})
+                    ),
+                    tag.span({cl: 'text'}, 'Live stream by:')
+                )
+            );
     }
 
 
