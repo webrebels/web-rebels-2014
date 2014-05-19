@@ -727,8 +727,20 @@ a.schedule-link {
     border: 0;
 }
 
+.stream {
+  background-color: #000;
+  padding: 10px;
+  margin-bottom: 60px;
+}
 
+.stream iframe {
+  display: block;
+  margin: 0 auto;
+}
 
+.stream.hidden {
+  display: none;
+}
 
 
 /* ==================== all done, you can go away now ==================== */

@@ -59,4 +59,13 @@ define('dom', function(require, exports) {
         parentElement.removeChild(last);
     };
 
+
+
+    // Helper to replace an element (and all its children) with a new element.
+
+    exports.replaceElement = function(existingElement, newElement) {
+        existingElement.parentNode.replaceChild(newElement, existingElement);
+        return newElement;
+    };
+
 });

@@ -14,7 +14,7 @@ define('tag', function(require, exports) {
         "div", "p", "span", "a", "img", "em", "b", "strong", "button",
         "form", "input", "textarea", "select", "option", "label", "ul", "ol", "li",
         "h1", "h2", "h3", "h4", "table", "thead", "tbody", "tfoot", "th", "tr", "td",
-        "header", "footer", "br"
+        "header", "footer", "br", "iframe"
     ];
 
     /**

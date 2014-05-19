@@ -6,8 +6,11 @@ define('init', function(require, exports) {
     "use strict";
 
     var twitter     = require('twitter'),
+        streaming   = require('streaming'),
         ws          = require('ws.connection');
         
+
+    // Push messages
 
     ws.on('message', function(obj){
         var type = obj.type.split(':');
@@ -18,4 +21,17 @@ define('init', function(require, exports) {
 
     ws.connect();
 
+
+
+    // Video streaming
+
+    streaming.render();
+
+
+
+    // If browser window resized
+
+    window.addEventListener('resize', function(){
+        streaming.render();
+    });
 });
