@@ -140,8 +140,22 @@ app.get('/speakers', function(req,res){
 app.get('/roadbook', function(req,res){
     res.render('roadbook', {externals: externals, pageTitle: 'Speakers Roadbook - Web Rebels ☠ Oslo 2014'});
 });
+
+// Node school tour stuff
 app.get('/tour', function(req,res){
     res.render('tour/index', {pageTitle: 'Web Rebels ☠ Nodeschool.io Tour of Norway'});
+});
+app.get('/tour/oslo', function(req,res){
+    res.render('tour/oslo', {pageTitle: 'Oslo Nodeschool at Fronter AS'});
+});
+app.get('/tour/bartcity', function(req,res){
+    res.render('tour/bartcity', {pageTitle: 'Trondheim Nodeschool at Fronter AS'});
+});
+app.get('/tour/bergen', function(req,res){
+    res.render('tour/bergen', {pageTitle: 'Bergen Nodeschool at Fronter AS'});
+});
+app.get('/tour/tv', function(req,res){
+    res.render('tour/slowtv', {pageTitle: 'Nodeschool Norway Tour - live coverage'});
 });
 
 
