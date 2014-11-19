@@ -111,7 +111,7 @@ app.get('/about', function(req,res){
     res.render('about', {externals: externals, pageTitle: '☠ About the Web Rebels ☠'});
 });
 app.get('/videos', function(req,res){
-    res.redirect('http://webrebels.23video.com');
+    res.redirect('http://vimeo.com/channels/wr2014');
 });
 app.get('/policies', function(req,res){
     res.render('policies', {externals: externals, pageTitle: '☠ Policies for the Web Rebels ☠'});
