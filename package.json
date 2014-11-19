@@ -47,8 +47,7 @@
   "licenses": [],
   "subdomain": "webreb2014",
   "domains": [
-    "www.webrebels.org",
-    "webrebels.org"
+    "2014.webrebels.org"
   ],
   "devDependencies": {
     "jshint": "latest",
