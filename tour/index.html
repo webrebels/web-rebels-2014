@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Web Rebels ☠ Nodeschool.io Tour of Norway</title>
+    <style type="text/css">
+      /* Base ------------------------------------------------------*/
+
+      html {
+         font-family: monospace;
+         font-size: 18px;
+         line-height: 1.5;
+      }
+
+      body {
+         background-color: #fff;
+         color: #222;
+         margin: 0;
+         padding: 0;
+      }
+
+      a {
+         text-decoration: none;
+         font-weight: bold;
+      }
+      h1 a:hover, h2 a:hover {
+         color: #EF3D30;
+      }
+      h1 a, h2 a {
+         font-weight: normal !important; 
+      }
+
+      a:link,
+      a:visited {
+         color: #EF3D30;
+      }
+
+      a:hover,
+      a:focus,
+      a:active {
+         color: #AF2825;
+      }
+
+      ::selection {
+         background:#ccc;
+      }
+
+      ::-moz-selection {
+         background:#ccc;
+      }
+
+      img {
+         max-width: 100%;
+      }
+
+      article, aside, figure, footer, header, nav, section {
+         display: block;
+      }
+
+      h1, h2, h3 {
+         font-family: Impact, "HelveticaNeue-CondensedBlack", sans-serif;
+         font-weight: normal;
+         font-style: normal;
+         text-transform: uppercase;
+         line-height: 1;
+         margin: 0;
+         color: #EF3D30;
+      }
+
+      h1 {
+         font-size: 3em;
+      }
+
+      h2 {
+         font-size: 2em;
+      }
+
+      @media screen and (min-width: 1000px) {
+         h1 {
+            font-size: 5em;
+         }
+
+         h2 {
+            font-size: 3em;
+         }
+      }
+
+      p {
+         margin: 0 0 1em 0;
+         max-width: 38em;
+      }
+
+      ul {
+         margin: 0;
+         padding: 0;
+      }
+
+      .paperstrip {
+         background-color: #fff;
+         display: inline-block;
+         margin-bottom: 10px;
+      }
+
+
+      /* Layout
+      ------------------------------------------------------*/
+
+
+      body {
+         border-top: 12px solid #222;
+         background: url(../img/tour/bg01.png) no-repeat 50% 0%;
+      }
+
+      .header {
+         max-width: 95%;
+         margin: 0 auto;
+      }
+
+      .content {
+         max-width: 95%;
+         margin: 0 auto;
+      }
+
+      .footer {
+         padding: 10em 3em 1em 3em;
+      }
+
+
+
+
+      /* Modules
+      ------------------------------------------------------*/
+
+      .header {
+         margin-bottom: 1em;
+      }
+
+      .header-title {
+         text-transform: none;
+         text-shadow: 3px 2px 0px #222;
+         padding-top: 10px;
+         margin-bottom: 10px;
+      }
+
+      .header-subtitle {
+         background-color: #fff;
+         color: #222;
+         padding: 1px 10px;
+
+      }
+
+
+
+      @media screen and (min-width: 1000px) {
+         .header {
+
+         }
+         .header-title {
+            font-size: 9em;
+            padding-top: 0;
+            -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+         }
+        .header-subtitle {
+            font-size: 3em;
+            display: inline-block;
+            -webkit-transform: rotate(0.5deg);
+            transform: rotate(0.5deg);
+         }
+      }
+
+
+
+.header-logos {
+   list-style: none;
+   text-align: center;
+}
+
+.header-logo1 {
+   max-width: 120px;
+}
+
+@media screen and (min-width: 600px) {
+   .header-logos {
+      text-align: left;
+      position: relative;
+      height: 220px;
+      padding: 10px;
+   }
+   .header-logo1 {
+      max-width: 200px;
+   }
+   .header-logo2 {
+      position: absolute;
+      left: 240px;
+      top: 20px;
+   }
+   .header-logo3 {
+      position: absolute;
+      left: 230px;
+      top: 130px;
+   }
+}
+
+@media screen and (min-width: 1300px) {
+   .header-logos {
+      text-align: left;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      width: 440px;
+   }
+}
+
+      .intro {
+         max-width: 44em;
+         margin-bottom: 1em;
+      }
+
+      .intro-txt {
+         background-color: #fff;
+         display: inline;
+         padding: 3px;
+      }
+
+      .intro:after {
+         content: ".";
+         display: block;
+         height: 0;
+         clear: both;
+         visibility: hidden;
+      }
+
+      .intro-linx {
+         list-style-type: none;
+      }
+
+      .intro-linx li {
+         float: left;
+         display: inline-block;
+         margin-right: 1em;
+      }
+
+      .intro-linx li a {
+         background-color: #fff;
+         padding: 1px 3px;
+      }
+
+      .intro-linx li a:hover {
+         background-color: #EF3D30;
+         color: #fff;
+      }
+
+      @media screen and (min-width: 1000px) {
+         .intro {
+            -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+            line-height: 2;
+            margin-left: 1em;
+         }
+         .intro-txt {
+            background-color: #fff;
+            display: inline;
+            padding: 3px;
+         }
+         .intro-linx {
+            -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+         }
+      }
+
+      .events {
+
+      }
+
+      .events:after {
+         content: ".";
+         display: block;
+         height: 0;
+         clear: both;
+         visibility: hidden;
+      }
+
+      .event-container {
+         list-style-type: none;
+         text-align: center;
+      }
+
+      .event-item {
+         padding: 0.5em;
+         background-color: #fff;
+         border: 12px solid #222;
+         margin: 10px auto;
+         max-width: 260px;
+         margin: 1em auto;
+      }
+      .streched .event-item {
+         width: 100%;
+         max-width: 94%;
+      }      
+
+      @media screen and (min-width: 1000px) {
+         .event-item {
+            margin: 1em;
+            float: left;
+            width: 260px;
+         }
+      }
+
+      .event-btn a {
+         display: inline-block;
+         border: 3px solid #EF3D30;
+         padding: 2px 20px;
+      }
+
+      .event-btn a:hover {
+         background-color: #EF3D30;
+         color: #fff;
+      }
+
+      .sponsors {
+         list-style-type: none;
+         margin: 0;
+      }
+
+      .sponsors > li {
+         display: inline-block;
+      }
+      </style>
+   <script>
+    var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-26864429-1']); _gaq.push(['_setDomainName', 'webrebels.org']); _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</head>
+<body>
+<div class="header">
+   <h1 class="header-title"><a href="index.html">NodeSchool Norway&nbsp;Tour</a></h1>
+   <h2 class="header-subtitle">with Max Ogden and Jessica&nbsp;Lord</h2>
+   <ul class="header-logos">
+      <li><a href="http://nodeschool.io/" title="nodeschool.io"><img class="header-logo1" src="../img/tour/nodeschool.svg" alt=""></a></li>
+      <li><a href="http://com.fronter.info/virtual-learning-environment-lms/jobs/" title="Fronter/Pearson"><img class="header-logo2" src="../img/sponsors/fronter.png" alt=""></a></li>
+      <li><a href="http://webrebels.org/" title="Web Rebels"><img class="header-logo3" src="../img/tour/webrebels.png" alt=""></a></li>
+   </ul>
+</div>
+
+<div class="content">
+   <div class="intro">
+      <p class="intro-txt">
+         Learn how to use node.js, npm and other related tools by writing code
+         to solve realistic problems. The choose-your-own-adventure style lessons
+         run in your terminal and work on Windows, Mac and Linux.
+      </p>
+      <ul class="intro-linx">
+         <li><a href="http://nodeschool.io/" title="nodeschool.io">nodeschool.io</a></li>
+         <li><a href="http://maxogden.com/" title="maxogden.com">maxogden.com</a>   </li>
+         <li><a href="http://jlord.us/" title="jlord.us">jlord.us</a></li>
+      </ul>
+      <br clear="all">
+      <ul class="intro-linx">
+         <li><a href="index.html">Tour page</a></li>
+         <li><a href="tv.html">Slow TV map</a></li>
+         <!--
+         <li><a href="/tour/bergen">Bergen</a></li>
+         -->
+         <li><a href="oslo/index.html">Oslo</a></li>
+         <li><a href="bartcity.html">Trondheim</a></li>
+      </ul>
+   </div>
+   <div class="events">
+      <ul class="event-container">
+         <li class="event-item osl">
+            <h2><a href="oslo.1.html">Oslo</a></h2>
+            <p>24 May 2014</p>
+            <p>The first leg of the tour was in Oslo, right after the conference.<br><a href="oslo/index.html">Check out what happened!</a></p>
+            <p>In association with <a href="http://www.meetup.com/framsia">Framsia Meetup</a></p>
+         </li>
+         <li class="event-item trd">
+            <h2><a href="bartcity/index.html">Trondheim</a></h2>
+            <p>25 May 2014</p>
+            <p>18:00 - 22:00 at <a href="https://www.google.com/maps/place/Norges+Kreative+Fagskole+-+avdeling+Trondheim/@63.432701,10.404128,17z/data=!3m1!4b1!4m2!3m1!1s0x466d31994ae10f85:0x52adbd15db56fc97">Norges Kreative Fagskole</a></p>
+            <p><a href="bartcity/index.html">Check out what happened!</a></p>
+            <p>In association with <a href="http://bartjs.github.io/">BartJS</a>
+            </p>
+         </li>
+         <li class="event-item bgo">
+            <h2>Bergen</h2>
+            <p>28 May 2014</p>
+            <p>18:00 - 20:00 at <a href="https://www.google.com/maps/place/Kvarteret/@60.389762,5.322123,17z/data=!3m1!4b1!4m2!3m1!1s0x463cfc0208521f51:0xbdfb43c9a516175">Tivoli, Kvarteret</a> </p>
+            <p class="event-btn">SOLD OUT!</p>
+            <p>In association with
+               <a href="http://boosterconf.no">Booster Conference</a> and <a href="http://www.meetup.com/BergenJS/">BergenJS</a>
+            </p>
+         </li>
+      </ul>
+   </div>
+   <div><a name="price"></a>
+      <h2>What's with the price tag?</h2>
+      <p style="background-color:white;">NodeSchool events are limited in size and we want to avoid people signing up but not showing up. The <u>entire amount</u> will be donated to the meetup groups helping us: <a href="http://bartjs.github.io/">BartJS</a>, <a href="http://www.meetup.com/BergenJS/">BergenJS</a> and <a href="http://www.meetup.com/framsia">Framsia</a>. Fronter, Web Rebels and <a href="http://boosterconf.no">Booster Conference</a> does not recieve any funds from this event.</p>
+   </div>
+   <div><a name="price"></a>
+      <h2>Questions?</h2>
+      <p style="background-color:white;">Just <a href="mailto:nodewtf [at] webrebels.org">slip us a note</a> or give us a shout on <a href="http://twitter.com/web_rebels">twitter</a>, ok</p>
+      <em>NodeSchool Norway Tour is an event sponsored by <a href="http://com.fronter.info/virtual-learning-environment-lms/jobs/">Fronter</a> for the <a href="https://www.webrebels.org/">Web Rebels Conference</a> with the support of <a href="http://bartjs.github.io/">BartJS</a>, <a href="http://www.meetup.com/BergenJS/">BergenJS</a>, <a href="http://boosterconf.no">Booster Conference</a> and <a href="http://www.meetup.com/framsia">Framsia</a>. Without whom it would not be possible, love you guys!</em>
+   </div>
+</div>
+
+</body>
+</html>
