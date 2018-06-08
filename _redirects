@@ -1,0 +1,5 @@
+# Redirect default Netlify subdomain to primary domain
+https://fervent-swanson-b57fed.netlify.com/* https://2014.webrebels.org/:splat 301!
+
+# These extra rules are required because HTTPS is not forced
+http://fervent-swanson-b57fed.netlify.com/* https://2014.webrebels.org/:splat 301!
